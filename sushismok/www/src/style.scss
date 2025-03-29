@@ -1,0 +1,39 @@
+@use 'scss-reset';
+
+body {
+  background-color: #272727;
+  background-size: cover;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.text-center {
+  text-align: center;
+}
+.mb-2 {
+  margin-bottom: 8px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #888;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #d1be8f;
+}
+
