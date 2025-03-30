@@ -1,554 +1,14 @@
 <script setup lang="ts">
-import type { MenuCategory } from "./types/MenuItem";
+import { computed, onMounted, ref } from "vue";
 import CardItemList from "./components/CardItemList.vue";
+import type { MenuItem } from "./types/MenuItem";
+import { menu } from "./utils/data";
+import Modal from "./components/Modal.vue";
+import Skeleton from "./components/Skeleton.vue";
 
-const menu: MenuCategory[] = [
-  {
-    category: "Nigiri",
-    items: [
-      {
-        name: "Z łososiem",
-        price: 22,
-        image: "/images/menu/1.webp",
-        description:
-          "Delikatny plaster świeżego łososia na poduszce z ryżu, idealnie komponujący się z wasabi i sosem sojowym.",
-        count: "2szt.",
-      },
-      {
-        name: "Z tuńczykiem",
-        price: 24,
-        image: "/images/menu/2.webp",
-        description:
-          "Soczysty kawałek tuńczyka o intensywnym smaku, podany na perfekcyjnie uformowanym ryżu.",
-        count: "2szt.",
-      },
-      {
-        name: "Z węgorzem",
-        price: 24,
-        image: "/images/menu/3.webp",
-        description:
-          "Aromatyczny i lekko słodkawy grillowany węgorz z japońskim sosem unagi, który nadaje wyjątkowej głębi smaku.",
-        count: "2szt.",
-      },
-      {
-        name: "Z wędzonym łososiem",
-        price: 23,
-        image: "/images/menu/4.webp",
-        description:
-          "Klasyczna kombinacja delikatnie wędzonego łososia i lekko zakwaszonego ryżu, która rozpływa się w ustach.  ",
-        count: "2szt.",
-      },
-      {
-        name: "Z krewetką",
-        price: 22,
-        image: "/images/menu/5.webp",
-        description:
-          "Soczysta, lekko słodkawa krewetka ułożona na miękkim ryżu, tworząc harmonijną i subtelną kompozycję.",
-        count: "2szt.",
-      },
-    ],
-  },
-
-  {
-    category: "Gunkan",
-    items: [
-      {
-        name: "Z masago",
-        price: 24,
-        image: "/images/menu/6.webp",
-        description:
-          " Delikatne ryżowe łódeczki wypełnione świeżymi jajkami ryb masago, które dodają wyjątkowego smaku i chrupkości.",
-        count: "2szt.",
-      },
-      {
-        name: "Z hiyashi",
-        price: 22,
-        image: "/images/menu/7.webp",
-        description:
-          "Chłodny, orzeźwiający gunkan z surowymi warzywami i dressingiem, idealny na letnie dni, oferujący lekkość i świeżość w każdym kęsie.",
-        count: "2szt.",
-      },
-    ],
-  },
-  {
-    category: "Maki Roll",
-    items: [
-      {
-        name: "Z ogórkiem",
-        price: 15,
-        image: "/images/menu/8.webp",
-        description:
-          "Lekka i orzeźwiająca rolka z chrupiącym ogórkiem, która doskonale łączy się z ryżem i nori.",
-        count: "6szt.",
-      },
-      {
-        name: "Z awokado",
-        price: 17,
-        image: "/images/menu/9.webp",
-        description:
-          "Kremowe, dojrzałe awokado w połączeniu z ryżem i nori, tworzy delikatną, pełną smaku rolkę.",
-        count: "6szt.",
-      },
-      {
-        name: "Z surimi",
-        price: 16,
-        image: "/images/menu/10.webp",
-        description:
-          "Rolka z surimi, imitacją krewetek, która oferuje subtelną morską nutę w połączeniu z ryżem i warzywami.",
-        count: "6szt.",
-      },
-      {
-        name: "Z krewetką",
-        price: 24,
-        image: "/images/menu/11.webp",
-        description:
-          "Rolka z soczystą krewetką, która nadaje daniu lekkości i świeżości.",
-        count: "6szt.",
-      },
-      {
-        name: "Z krewetką w tempurze",
-        price: 26,
-        image: "/images/menu/12.webp",
-        description:
-          "Chrupiąca krewetka w cieście tempura, która dodaje rolce wyjątkowej tekstury i smaku.",
-        count: "6szt.",
-      },
-      {
-        name: "Z łososiem",
-        price: 24,
-        image: "/images/menu/13.webp",
-        description:
-          "Świeży łosoś w połączeniu z ryżem i nori, tworzy harmonijną i pełną smaku rolkę.",
-        count: "6szt.",
-      },
-      {
-        name: "Z wędzonym łososiem",
-        price: 25,
-        image: "/images/menu/14.webp",
-        description:
-          "Wędzony łosoś, którego głęboki smak doskonale łączy się z ryżem, tworząc intensywną rolkę.",
-        count: "6szt.",
-      },
-      {
-        name: "Z tuńczykiem",
-        price: 25,
-        image: "/images/menu/15.webp",
-        description:
-          "Soczysty kawałek tuńczyka, który łączy się z ryżem, tworząc rolkę o wyrazistym smaku.",
-        count: "6szt.",
-      },
-      {
-        name: "Z węgorzem",
-        price: 25,
-        image: "/images/menu/16.webp",
-        description:
-          "Grillowany węgorz, który nadaje rolce delikatnie słodkawy smak, idealnie łącząc się z ryżem i sosem unagi.",
-        count: "6szt.",
-      },
-    ],
-  },
-  {
-    category: "Kalifornia Roll",
-    items: [
-      {
-        name: "Z łososiem",
-        price: 37,
-        image: "/images/menu/17.webp",
-        description:
-          "Pyszna rolka z kawałkami świeżego łososia, awokado i ogórkiem, otoczona ziarnami sezamu, tworząc harmonijną kompozycję smakową.",
-        count: "(masago,awokado,ogórek), 8szt.",
-      },
-      {
-        name: "Z wędzonym łososiem",
-        price: 38,
-        image: "/images/menu/18.webp",
-        description:
-          "Połączenie wędzonego łososia, awokado i ogórka w delikatnym ryżowym zawiniątku, które oferuje intensywny, dymny smak.",
-        count: "(sezam,awokado,ogórek), 8szt.",
-      },
-      {
-        name: "Z lekko solonym łososiem",
-        price: 38,
-        image: "/images/menu/19.webp",
-        description:
-          "Wyjątkowa rolka z solonym łososiem, awokado i ogórkiem, otoczona sezamem, oferująca subtelną, słonawą nutę smaku.",
-        count: "(sezam,awokado,ogórek), 8szt.",
-      },
-      {
-        name: "Klasyczna",
-        price: 36,
-        image: "/images/menu/20.webp",
-        description:
-          "Klasyczna wersja rolla z kawałkami surimi, awokado, ogórkiem, otoczona ziarnami sezamu, idealna dla fanów tradycyjnych smaków.",
-        count: "(surimi,masago,ogórek,awokado,majonez), 8szt.",
-      },
-    ],
-  },
-  {
-    category: "Smok",
-    items: [
-      {
-        name: "Czerwony",
-        price: 48,
-        image: "/images/menu/21.webp",
-        description:
-          "Rolka z pikantnym tuńczykiem, awokado i świeżym ogórkiem, otoczona w czerwoną glazurę z sosem chili, dodającą ostrości i wyrazistości. ",
-        count: "(tuńczyk,węgorz,masago,ogórek,tamago), 8szt.",
-      },
-      {
-        name: "Pomarańczowy",
-        price: 46,
-        image: "/images/menu/22.webp",
-        description:
-          "Połączenie delikatnego łososia, kremowego awokado i świeżego ogórka, otoczonego w pomarańczowej glazurze, która nadaje soczystości i owocowego posmaku.  ",
-        count: "(losoś węgorz,masago,ogórek,tamago), 8szt.",
-      },
-      {
-        name: "Złoty",
-        price: 48,
-        image: "/images/menu/23.webp",
-        description:
-          "Elegancka rolka z wędzonym łososiem, awokado i sezamem, otoczona złotą glazurą, która podkreśla jej wykwintny smak i aromat. ",
-        count: "(węgorz,masago,ogórek,tamago), 8szt.",
-      },
-      {
-        name: "Zielony",
-        price: 45,
-        image: "/images/menu/24.webp",
-        description:
-          "Świeża rolka z awokado, ogórkiem i tuńczykiem, obleczona w zieloną glazurę, która nadaje jej orzeźwiający smak i lekkość.  ",
-        count: "(awokado,węgorz,masago,ogórek,tamago), 8szt.",
-      },
-      {
-        name: "Tygrysowy",
-        price: 47,
-        image: "/images/menu/25.webp",
-        description:
-          "Rolka z pikantnym krewetką, awokado i ogórkiem, otoczona w aromatycznej glazurze, wzbogacona o chrupiące dodatki, tworząca mocny, wyrazisty smak.",
-        count: "(krewetka Ebi,węgorz,masago,ogórek,tamago), 8szt.",
-      },
-    ],
-  },
-
-  {
-    category: "Futomaki",
-    items: [
-      {
-        name: "Z wędzonym kurczakiem ",
-        price: 35,
-        image: "/images/menu/empty.svg",
-        // description: "",
-        count:
-          "(szczypior,pomidor,ogórek,sałata lodowa,sos sriracza mayo), 8szt.",
-      },
-      {
-        name: "Z łososiem i serem cheddar ",
-        price: 38,
-        image: "/images/menu/empty.svg",
-        // description: "",
-        count:
-          "(serek,krewetka gotowana,mix z surimi,sałata lodowa,cheddar,losoś), 8szt.",
-      },
-    ],
-  },
-
-  {
-    category: "Krancz",
-    items: [
-      {
-        name: "Z krewetką w tempurze",
-        price: 36,
-        image: "/images/menu/empty.svg",
-        // description: "",
-        count: "(masago,chrupki,ogórek,majonez), 8szt.",
-      },
-      {
-        name: "Z surimi ",
-        price: 33,
-        image: "/images/menu/empty.svg",
-        // description: "",
-        count: "(masgo,chrupki,ogórek,shitake,majonez), 8szt.",
-      },
-    ],
-  },
-
-  {
-    category: "Filadelfia",
-    items: [
-      {
-        name: "Z łososiem ",
-        price: 37,
-        image: "/images/menu/empty.svg",
-        // description: "",
-        count: "(serek,awokado), 8szt.",
-      },
-      {
-        name: "Z wędzonym lososiem ",
-        price: 39,
-        image: "/images/menu/empty.svg",
-        // description: "",
-        count: "(serek,ogórek), 8szt.",
-      },
-      {
-        name: "Unagi",
-        price: 44,
-        image: "/images/menu/empty.svg",
-        // description: "",
-        count: "(sezam,serek,masago,węgorz,ogórek,awokado), 8szt.",
-      },
-      {
-        name: "Z tuńczykiem ",
-        price: 44,
-        image: "/images/menu/empty.svg",
-        // description: "",
-        count: "(serek,awokado), 8szt.",
-      },
-      {
-        name: "Ebi",
-        price: 44,
-        image: "/images/menu/empty.svg",
-        // description: "",
-        count: "(serek,losos,awokado), 8szt.",
-      },
-      {
-        name: "Cheddar",
-        price: 38,
-        image: "/images/menu/empty.svg",
-        // description: "",
-        count: "(serek,losoś lekko słony), 8szt.",
-      },
-      {
-        name: "Z krewetką w tempurze ",
-        price: 43,
-        image: "/images/menu/empty.svg",
-        // description: "",
-        count: "(serek,ogórek,losoś), 8szt.",
-      },
-    ],
-  },
-
-  {
-    category: "Smażony Roll",
-    items: [
-      {
-        name: "Tempura Smok",
-        price: 40,
-        image: "/images/menu/empty.svg",
-        // description: "",
-        count: "(węgorz,tamago,awokado,serek), 8szt.",
-      },
-      {
-        name: "Z łososiem i krewetką ",
-        price: 37,
-        image: "/images/menu/empty.svg",
-        // description: "",
-        count: "(masago,awokado,ogórek,losoś,krewetka gotowana,serek), 8szt.",
-      },
-    ],
-  },
-
-  {
-    category: "Pieczony Roll",
-    items: [
-      {
-        name: "Z krewetką",
-        price: 40,
-        image: "/images/menu/empty.svg",
-        // description: "",
-        count: "(w środku:ogórek surimi. Z góry mieszanka z krewetką), 8szt.",
-      },
-      {
-        name: "Z łososiem",
-        price: 41,
-        image: "/images/menu/empty.svg",
-        // description: "",
-        count:
-          "(w środku:awokado, mix z surimi. Z góry mieszanka z losośa), 8szt.",
-      },
-      {
-        name: "Z węgorzem",
-        price: 43,
-        image: "/images/menu/empty.svg",
-        // description: "",
-        count: "(w środku serek. Zgóry mieszanka węgorza), 8szt.",
-      },
-    ],
-  },
-
-  {
-    category: "Salatka",
-    items: [
-      {
-        name: "Wakame goma z sosem sezamowym",
-        price: 15,
-        image: "/images/menu/empty.svg",
-        // description: "",
-        // count: ", 8szt."
-      },
-    ],
-  },
-
-  {
-    category: "Przekąski",
-    items: [
-      {
-        name: "Krewetki w tempurze z sosem",
-        price: 42,
-        image: "/images/menu/empty.svg",
-        // description: "",
-        count: "6szt.",
-      },
-    ],
-  },
-
-  {
-    category: "Zupy",
-    items: [
-      {
-        name: "Miso Klasyczna",
-        price: 20,
-        image: "/images/menu/empty.svg",
-        // description: "",
-        count: "(tofu,shitake,wakame,sezam,szczypior), 8szt.",
-      },
-      {
-        name: "Miso z łososiem",
-        price: 25,
-        image: "/images/menu/empty.svg",
-        // description: "",
-        count: "(tofu,shitake,wakame,sezam,szczypior), 8szt.",
-      },
-    ],
-  },
-
-  {
-    category: "Smażony Ryż „Tiachan“",
-    items: [
-      {
-        name: "Z jajkiem",
-        price: 25,
-        image: "/images/menu/empty.svg",
-        // description: "",
-        count: "(ryż,jajo,szczypior,sezam), 8szt.",
-      },
-      {
-        name: "Z kurczakiem",
-        price: 30,
-        image: "/images/menu/empty.svg",
-        // description: "",
-        count: "(ryż,jajo,szczypior,sezam), 8szt.",
-      },
-      {
-        name: "Z krewetką ",
-        price: 32,
-        image: "/images/menu/empty.svg",
-        // description: "",
-        count: "(ryż,jajo,szczypior,sezam), 8szt.",
-      },
-    ],
-  },
-
-  {
-    category: "Zestawy",
-    items: [
-      {
-        name: "Mega Smok",
-        price: 260,
-        image: "/images/menu/empty.svg",
-        count:
-          "(Czerwony smok, Pomarańczowy smok, Złoty smok, Zielony smok,Tygrysowy smok, Tempura smok)",
-      },
-      {
-        name: "Mini Smok",
-        price: 125,
-        image: "/images/menu/empty.svg",
-        count: "(Pomarańczowy smok,Złoty smok,Zielony smok)",
-      },
-      {
-        name: "Fila Set",
-        price: 150,
-        image: "/images/menu/empty.svg",
-        count:
-          "(Fila losoś, Fila tunczyk, Fila Unagi, Fila z wędzonym lososiem)",
-      },
-      {
-        name: "Beer Set",
-        price: 145,
-        image: "/images/menu/empty.svg",
-        count:
-          "(Futomaki z wędzonym kurczakiem, Kalifornia z wędzonym lososiem, kalifornia z lrkko słonym lososiem, Krewetki w tempurze)",
-      },
-      {
-        name: "Maki Set",
-        price: 109,
-        image: "/images/menu/empty.svg",
-        count:
-          "(Maki z: lososiem, węgorzem,krewetką,wędzonym lososiem,ogórkiem, awokado)",
-      },
-      {
-        name: "Set z łososiem",
-        price: 150,
-        image: "/images/menu/empty.svg",
-        count:
-          "(Fila losoś,Fila z krewetką w tempurze,Kalifornia z lososiem, Maki zlososiem, Nigiri z lososiem)",
-      },
-    ],
-  },
-  {
-    category: "Dodatki",
-    items: [
-      {
-        name: "Sos sezamowy",
-        price: 5,
-        // image: "/images/menu/empty.svg",
-        // description: "",
-        count: "1szt.",
-      },
-      {
-        name: "Sos teriyaki ",
-        price: 5,
-        // image: "/images/menu/empty.svg",
-        // description: "",
-        count: "1szt.",
-      },
-      {
-        name: "Sos sriracza mayo",
-        price: 5,
-        // image: "/images/menu/empty.svg",
-        // description: "",
-        count: "1szt.",
-      },
-      {
-        name: "Sos sriracza",
-        price: 5,
-        // image: "/images/menu/empty.svg",
-        // description: "",
-        count: "1szt.",
-      },
-      {
-        name: "Imbir marynowany ",
-        price: 5,
-        // image: "/images/menu/empty.svg",
-        // description: "",
-        count: "1szt.",
-      },
-      {
-        name: "Sos sojowy",
-        price: 5,
-        // image: "/images/menu/empty.svg",
-        // description: "",
-        count: "1szt.",
-      },
-      {
-        name: "Wasabi",
-        price: 5,
-        // image: "/images/menu/empty.svg",
-        // description: "",
-        count: "1szt.",
-      },
-    ],
-  },
-];
+const favoriteData = ref<MenuItem[]>([]);
+const openModal = ref(false);
+const loading = ref(true);
 
 const scrollTo = (category: string) => {
   const element = document.getElementById(category);
@@ -559,6 +19,39 @@ const scrollTo = (category: string) => {
     window.scrollTo({ top: elementPosition - offset, behavior: "smooth" });
   }
 };
+
+const countFavorite = ref(favoriteData.value.length);
+
+const updateFavorite = () => {
+  const storedData = localStorage.getItem("favorite");
+    if (storedData) {
+      favoriteData.value = JSON.parse(storedData);
+    }
+
+    countFavorite.value = favoriteData.value.length;
+}
+
+const closeModal = () => {
+  openModal.value = false;
+  loading.value = true;
+
+  setTimeout(function(){
+    loading.value = false;
+  },100)
+}
+
+const isShowFavorite = computed((): boolean => {
+  return countFavorite.value > 0;
+})
+
+const prices = computed(() => {
+  return favoriteData.value.reduce((sum, item) => sum + item.price, 0);
+});
+
+onMounted(()=> {
+  updateFavorite();
+  loading.value = false;
+})
 </script>
 
 <template>
@@ -628,6 +121,7 @@ const scrollTo = (category: string) => {
           </li>
         </ul>
         <div
+          v-if="!loading" 
           class="cards-item"
           v-for="(items, index) in menu"
           :key="items.category"
@@ -637,12 +131,29 @@ const scrollTo = (category: string) => {
             {{ items.category }}
           </h4>
 
-          <CardItemList :items="menu[index].items" />
+          <CardItemList :items="menu[index].items" @update-favorite="updateFavorite"/>
         </div>
+
+        <Skeleton class="menu-skeleton" v-else />
       </div>
     </div>
   </main>
   <footer class="footer">&#169; sushismok.ct.ws</footer>
+
+  <div v-if="isShowFavorite" class="open-favorite-button">
+    <button class="modal-button" @click="openModal = true">
+      <span>{{countFavorite}} pozycje w zakładkach</span>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.25 1.75H4.75C3.64543 1.75 2.75 2.64543 2.75 3.75V14.2504L8 10.75L13.25 14.2504V3.75C13.25 2.64543 12.3546 1.75 11.25 1.75Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" id="icon-bookmark"></path></svg>
+    </button>
+  </div>
+
+  <Modal :isOpen="openModal" @close="closeModal">
+    <CardItemList v-if="isShowFavorite" :items="favoriteData" @update-favorite="updateFavorite"/>
+    <p v-else class="text-center modal-price">Ups! Wybranych pozycji obecnie brak... =( Dodaj ulubioną pozycję do Menu do ulubionych!</p>
+    <p v-if="isShowFavorite" class="modal-price">Całkowita kwota do zapłaty: <span>{{ prices }}zł</span></p>
+
+    <button @click="closeModal" type="button" class="modal-button">Powrócić do menu    </button>
+  </Modal>
 </template>
 
 <style scoped lang="scss">
@@ -736,7 +247,7 @@ const scrollTo = (category: string) => {
   &-item {
     background: #252525;
     border-radius: 24px;
-    padding: 12px;
+    padding: 24px 12px 0;
 
     &-title {
       color: #d1be8f;
@@ -758,6 +269,7 @@ const scrollTo = (category: string) => {
   overflow-x: auto;
   background: #181818;
   padding: 4px 0;
+  z-index: 99;
 
   li {
     a {
@@ -785,6 +297,62 @@ const scrollTo = (category: string) => {
   margin: 0 auto;
   position: relative;
   background: #181818;
-  padding-bottom: 24px;
+  padding-bottom: 100px;
+}
+
+.open-favorite-button {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 560px;
+  z-index: 50;
+  padding: 20px 20px 24px;
+  background: #181818;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  width: 100%;
+
+  .modal-button {
+    width: fit-content;
+    margin: auto;
+  }
+}
+
+.modal {
+  &-button {
+    text-wrap: nowrap;
+    background: #d1be8f;
+    border: 2px solid #d1be8f;
+    border-radius: 24px;
+    padding: 12px 24px;
+    color: #181818;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+  }
+  &-price {
+    color: #fff;
+    font-size: 21px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    span {
+      font-weight: bold;
+    }
+  }
+}
+
+.menu-skeleton {
+  min-height: 100vh;
+  width: 100%;
+  border-radius: 24px;
 }
 </style>

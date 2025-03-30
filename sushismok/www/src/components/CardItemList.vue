@@ -1,12 +1,19 @@
 <template>
   <ul class="cards-item-list">
-    <CardItemListItem v-for="item in items" :key="item.name" :item="item" />
+    <CardItemListItem 
+      v-for="item in items" 
+      :key="item.name" 
+      :item="item"
+      @update-favorite="emit('updateFavorite')"
+    />
   </ul>
 </template>
 <script lang="ts" setup>
 import type { PropType } from 'vue';
 import type { MenuItem } from '../types/MenuItem';
 import CardItemListItem from './CardItemListItem.vue'
+
+const emit = defineEmits(['updateFavorite']);
 
 defineProps({
   items: {

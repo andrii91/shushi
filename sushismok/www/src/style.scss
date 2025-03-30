@@ -15,7 +15,7 @@ body {
 }
 
 .text-center {
-  text-align: center;
+  text-align: center !important;
 }
 .mb-2 {
   margin-bottom: 8px;
@@ -37,3 +37,6 @@ body {
   background: #d1be8f;
 }
 
+.modal-opened {
+  overflow: hidden !important;
+}
