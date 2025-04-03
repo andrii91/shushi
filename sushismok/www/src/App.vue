@@ -1,64 +1,11 @@
-<script setup lang="ts">
-import { computed, onMounted, ref } from "vue";
-import CardItemList from "./components/CardItemList.vue";
-import type { MenuItem } from "./types/MenuItem";
-import { menu } from "./utils/data";
-import Modal from "./components/Modal.vue";
-import Skeleton from "./components/Skeleton.vue";
-
-const favoriteData = ref<MenuItem[]>([]);
-const openModal = ref(false);
-const loading = ref(true);
-
-const scrollTo = (category: string) => {
-  const element = document.getElementById(category);
-  if (element) {
-    const offset = 28;
-    const elementPosition =
-      element.getBoundingClientRect().top + window.scrollY;
-    window.scrollTo({ top: elementPosition - offset, behavior: "smooth" });
-  }
-};
-
-const countFavorite = ref(favoriteData.value.length);
-
-const updateFavorite = () => {
-  const storedData = localStorage.getItem("favorite");
-    if (storedData) {
-      favoriteData.value = JSON.parse(storedData);
-    }
-
-    countFavorite.value = favoriteData.value.length;
-}
-
-const closeModal = () => {
-  openModal.value = false;
-  loading.value = true;
-
-  setTimeout(function(){
-    loading.value = false;
-  },100)
-}
-
-const isShowFavorite = computed((): boolean => {
-  return countFavorite.value > 0;
-})
-
-const prices = computed(() => {
-  return favoriteData.value.reduce((sum, item) => sum + item.price, 0);
-});
-
-onMounted(()=> {
-  updateFavorite();
-  loading.value = false;
-})
-</script>
-
 <template>
   <header class="header">
     <div class="container">
       <img src="./assets/header.webp" alt="header" />
       <img src="./assets/logo.webp" class="logo" alt="header" />
+      <I18nSelector 
+        @change="updateLocale"
+      />
     </div>
   </header>
   <main class="main">
@@ -70,6 +17,7 @@ onMounted(()=> {
             +48 880 503 760</a
           >
         </div>
+               
         <a
           class="main-place-address"
           href="https://maps.app.goo.gl/QGLZegSUG5hXpC527"
@@ -89,10 +37,12 @@ onMounted(()=> {
               ></path>
             </g>
           </svg>
-          <span>Pomarańczowa 7, 70-781 Szczecin, Polska</span>
+          <span>
+            {{ t("common.address") }}
+          </span>
         </a>
         <a
-          class="main-place-social"
+          class="main-place-social mb-2"
           href="https://www.instagram.com/sushismok_s/"
           rel="nofollow"
           target="_blank"
@@ -138,23 +88,104 @@ onMounted(()=> {
       </div>
     </div>
   </main>
-  <footer class="footer">&#169; sushismok.ct.ws</footer>
+  <footer class="footer">
+    <div class="main-place-address main-place-time">
+      <div class="main-place-time-title">{{ t("common.hours.title")}}</div>
+
+      <div>{{ t("common.hours.time1")}}</div>
+      <div>{{ t("common.hours.time2")}}</div>
+    </div>
+    <div> &#169; sushismok.ct.ws</div>
+  </footer>
 
   <div v-if="isShowFavorite" class="open-favorite-button">
     <button class="modal-button" @click="openModal = true">
-      <span>{{countFavorite}} pozycje w zakładkach</span>
+      <span>{{countFavorite}} {{ t("common.favoriteButton") }}</span>
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.25 1.75H4.75C3.64543 1.75 2.75 2.64543 2.75 3.75V14.2504L8 10.75L13.25 14.2504V3.75C13.25 2.64543 12.3546 1.75 11.25 1.75Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" id="icon-bookmark"></path></svg>
     </button>
   </div>
 
   <Modal :isOpen="openModal" @close="closeModal">
     <CardItemList v-if="isShowFavorite" :items="favoriteData" @update-favorite="updateFavorite"/>
-    <p v-else class="text-center modal-price">Ups! Wybranych pozycji obecnie brak... =( Dodaj ulubioną pozycję do Menu do ulubionych!</p>
-    <p v-if="isShowFavorite" class="modal-price">Całkowita kwota do zapłaty: <span>{{ prices }}zł</span></p>
+    <p v-else class="text-center modal-price">{{ t("common.component.modal.empty.title") }}</p>
+    <p v-if="isShowFavorite" class="modal-price"> {{ t("common.component.modal.empty.subtitle") }} <span>{{ prices }}zł</span></p>
 
-    <button @click="closeModal" type="button" class="modal-button">Powrócić do menu    </button>
+    <button @click="closeModal" type="button" class="modal-button">  {{ t("common.component.modal.empty.button") }} </button>
   </Modal>
+
+  {{ t("common.menu.dodatki.items.6.name") }}
 </template>
+
+<script setup lang="ts">
+import { computed, onMounted, ref } from "vue";
+import CardItemList from "./components/CardItemList.vue";
+import type { MenuItem } from "./types/MenuItem";
+import { getMenu } from "./utils/data";
+import Modal from "./components/Modal.vue";
+import Skeleton from "./components/Skeleton.vue";
+import { useI18n } from "vue-i18n";
+import I18nSelector from "./components/I18nSelector.vue";
+
+const { t, locale } = useI18n();
+const favoriteData = ref<MenuItem[]>([]);
+const openModal = ref(false);
+const loading = ref(true);
+const menu = ref(getMenu(t));
+
+const scrollTo = (category: string) => {
+  const element = document.getElementById(category);
+  if (element) {
+    const offset = 28;
+    const elementPosition =
+      element.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo({ top: elementPosition - offset, behavior: "smooth" });
+  }
+};
+
+const countFavorite = ref(favoriteData.value.length);
+
+const updateFavorite = () => {
+  const storedData = localStorage.getItem("favorite");
+    if (storedData) {
+      favoriteData.value = JSON.parse(storedData);
+    }
+
+    countFavorite.value = favoriteData.value.length;
+}
+
+const closeModal = () => {
+  openModal.value = false;
+  loading.value = true;
+
+  setTimeout(function(){
+    loading.value = false;
+  },100)
+}
+
+const isShowFavorite = computed((): boolean => {
+  return countFavorite.value > 0;
+})
+
+const prices = computed(() => {
+  return favoriteData.value.reduce((sum, item) => sum + item.price, 0);
+});
+
+onMounted(()=> {
+  updateFavorite();
+  loading.value = false;
+})
+
+const updateLocale = () => {
+  localStorage.setItem("locale", locale.value);
+  loading.value = true;
+
+  menu.value = getMenu(t);
+
+  setTimeout(function(){
+    loading.value = false;
+  },100)
+};
+</script>
 
 <style scoped lang="scss">
 .header {
@@ -234,6 +265,16 @@ onMounted(()=> {
 
       &:hover {
         color: #fff;
+      }
+    }
+
+    &-time {
+      flex-direction: column;
+      margin-bottom: 12px;
+
+      &-title {
+        font-size: 18px;
+        font-weight: bold;
       }
     }
   }
@@ -316,37 +357,6 @@ onMounted(()=> {
   .modal-button {
     width: fit-content;
     margin: auto;
-  }
-}
-
-.modal {
-  &-button {
-    text-wrap: nowrap;
-    background: #d1be8f;
-    border: 2px solid #d1be8f;
-    border-radius: 24px;
-    padding: 12px 24px;
-    color: #181818;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    cursor: pointer;
-    font-weight: bold;
-    text-align: center;
-    justify-content: center;
-    width: 100%;
-  }
-  &-price {
-    color: #fff;
-    font-size: 21px;
-    margin-bottom: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    span {
-      font-weight: bold;
-    }
   }
 }
 

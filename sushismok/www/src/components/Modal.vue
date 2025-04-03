@@ -37,21 +37,7 @@ onUnmounted(() => {
 });
 </script>
 
-
 <style scoped lang="scss">
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  z-index: 100;
-}
-
 .modal {
   background: #272727;
   padding: 40px 20px;
@@ -66,6 +52,19 @@ onUnmounted(() => {
     overflow-y: auto;
     padding: 24px 8px 0;
     overflow-x: hidden;
+  }
+
+  &-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 100;
   }
 }
 

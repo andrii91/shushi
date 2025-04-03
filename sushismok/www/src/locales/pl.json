@@ -1,0 +1,411 @@
+{
+  "common": {
+    "menu": {
+      "nigiri": {
+        "title": "Nigiri",
+        "items": {
+          "1": {
+            "name": "Z łososiem",
+            "description": "Delikatny plaster świeżego łososia na poduszce z ryżu, idealnie komponujący się z wasabi i sosem sojowym.",
+            "count": "2szt."
+          },
+          "2": {
+            "name": "Z tuńczykiem",
+            "description": "Soczysty kawałek tuńczyka o intensywnym smaku, podany na perfekcyjnie uformowanym ryżu.",
+            "count": "2szt."
+          },
+          "3": {
+            "name": "Z węgorzem",
+            "description": "Aromatyczny i lekko słodkawy grillowany węgorz z japońskim sosem unagi, który nadaje wyjątkowej głębi smaku.",
+            "count": "2szt."
+          },
+          "4": {
+            "name": "Z wędzonym łososiem",
+            "description": "Klasyczna kombinacja delikatnie wędzonego łososia i lekko zakwaszonego ryżu, która rozpływa się w ustach.",
+            "count": "2szt."
+          },
+          "5": {
+            "name": "Z krewetką",
+            "description": "Soczysta, lekko słodkawa krewetka ułożona na miękkim ryżu, tworząc harmonijną i subtelną kompozycję.",
+            "count": "2szt."
+          }
+        }
+      },
+      "gunkan": {
+        "title": "Gunkan",
+        "items": {
+          "1": {
+            "name": "Z masago",
+            "description": " Delikatne ryżowe łódeczki wypełnione świeżymi jajkami ryb masago,  które dodają wyjątkowego smaku i chrupkości.",
+            "count": "2szt."
+          },
+          "2": {
+            "name": "Z hiyashi",
+            "description": "Chłodny, orzeźwiający gunkan z surowymi warzywami i dressingiem, idealny na letnie dni, oferujący lekkość i świeżość w każdym kęsie.",
+            "count": "2szt."
+          }
+        }
+      },
+      "makiRoll": {
+        "title": "Maki Roll",
+        "items": {
+          "1": {
+            "name": "Z ogórkiem",
+            "description": "Lekka i orzeźwiająca rolka z chrupiącym ogórkiem, która doskonale łączy się z ryżem i nori.",
+            "count": "6szt."
+          },
+          "2": {
+            "name": "Z awokado",
+            "description": "Kremowe, dojrzałe awokado w połączeniu z ryżem i nori, tworzy delikatną, pełną smaku rolkę.",
+            "count": "6szt."
+          },
+          "3": {
+            "name": "Z surimi",
+            "description": "Rolka z surimi,  imitacją krewetek, która oferuje subtelną morską nutę w połączeniu z ryżem i warzywami.",
+            "count": "6szt."
+          },
+          "4": {
+            "name": "Z krewetką",
+            "description": "Rolka z soczystą krewetką,  która nadaje daniu lekkości i świeżości.",
+            "count": "6szt."
+          },
+          "5": {
+            "name": "Z krewetką w tempurze",
+            "description": "Chrupiąca krewetka w cieście tempura, która dodaje rolce wyjątkowej tekstury i smaku.",
+            "count": "6szt."
+          },
+          "6": {
+            "name": "Z łososiem",
+            "description": "Świeży łosoś w połączeniu z ryżem i nori, tworzy harmonijną i pełną smaku rolkę.",
+            "count": "6szt."
+          },
+          "7": {
+            "name": "Z wędzonym łososiem",
+            "description": "Wędzony łosoś, którego głęboki smak doskonale łączy się z ryżem, tworząc intensywną rolkę.",
+            "count": "6szt."
+          },
+          "8": {
+            "name": "Z tuńczykiem",
+            "description": "Soczysty kawałek tuńczyka, który łączy się z ryżem, tworząc rolkę o wyrazistym smaku.",
+            "count": "6szt."
+          },
+          "9": {
+            "name": "Z węgorzem",
+            "description": "Grillowany węgorz,  który nadaje rolce delikatnie słodkawy smak, idealnie łącząc się z ryżem i sosem unagi.",
+            "count": "6szt."
+          }
+        }
+      },
+      "kaliforniaRoll": {
+        "title": "Kalifornia Roll",
+        "items": {
+          "1": {
+            "name": "Z łososiem",
+            "description": "Pyszna rolka z kawałkami świeżego łososia, awokado i ogórkiem, otoczona ziarnami sezamu, tworząc harmonijną kompozycję smakową.",
+            "count": "(masago, awokado, ogórek), 8szt."
+          },
+          "2": {
+            "name": "Z wędzonym łososiem",
+            "description": "Połączenie wędzonego łososia, awokado i ogórka w delikatnym ryżowym zawiniątku, które oferuje intensywny, dymny smak.",
+            "count": "(sezam, awokado, ogórek), 8szt."
+          },
+          "3": {
+            "name": "Z lekko solonym łososiem",
+            "description": "Wyjątkowa rolka z solonym łososiem, awokado i ogórkiem, otoczona sezamem, oferująca subtelną, słonawą nutę smaku.",
+            "count": "(sezam, awokado, ogórek), 8szt."
+          },
+          "4": {
+            "name": "Klasyczna",
+            "description": "Klasyczna wersja rolla z kawałkami surimi,  awokado,  ogórkiem, otoczona ziarnami sezamu, idealna dla fanów tradycyjnych smaków.",
+            "count": "(surimi, masago, ogórek, awokado, majonez), 8szt."
+          }
+        }
+      },
+      "smok": {
+        "title": "Smok",
+        "items": {
+          "1": {
+            "name": "Czerwony",
+            "description": "Rolka z pikantnym tuńczykiem, awokado i świeżym ogórkiem, otoczona w czerwoną glazurę z sosem chili, dodającą ostrości i wyrazistości. ",
+            "count": "(tuńczyk, węgorz, masago, ogórek, tamago), 8szt."
+          },
+          "2": {
+            "name": "Pomarańczowy",
+            "description": "Połączenie delikatnego łososia, kremowego awokado i świeżego ogórka, otoczonego w pomarańczowej glazurze, która nadaje soczystości i owocowego posmaku.  ",
+            "count": "(losoś węgorz, masago, ogórek, tamago), 8szt."
+          },
+          "3": {
+            "name": "Złoty",
+            "description": "Elegancka rolka z wędzonym łososiem, awokado i sezamem, otoczona złotą glazurą, która podkreśla jej wykwintny smak i aromat. ",
+            "count": "(węgorz, masago, ogórek, tamago), 8szt."
+          },
+          "4": {
+            "name": "Zielony",
+            "description": "Świeża rolka z awokado,  ogórkiem i tuńczykiem, obleczona w zieloną glazurę, która nadaje jej orzeźwiający smak i lekkość.  ",
+            "count": "(awokado, węgorz, masago, ogórek, tamago), 8szt."
+          },
+          "5": {
+            "name": "Tygrysowy",
+            "description": "Rolka z pikantnym krewetką,  awokado i ogórkiem, otoczona w aromatycznej glazurze, wzbogacona o chrupiące dodatki, tworząca mocny, wyrazisty smak.",
+            "count": "(krewetka Ebi,węgorz, masago, ogórek, tamago), 8szt."
+          }
+        }
+      },
+      "futomaki": {
+        "title": "Futomaki",
+        "items": {
+          "1": {
+            "name": "Z wędzonym kurczakiem ",
+            "description": "",
+            "count": "(szczypior, pomidor, ogórek, sałata lodowa, sos sriracza mayo), 8szt."
+          },
+          "2": {
+            "name": "Z łososiem i serem cheddar ",
+            "description": "",
+            "count": "(serek, krewetka gotowana,mix z surimi, sałata lodowa, cheddar, losoś), 8szt."
+          }
+        }
+      },
+      "krancz": {
+        "title": "Krancz",
+        "items": {
+          "1": {
+            "name": "Z krewetką w tempurze",
+            "description": "Krancz z krewetką w tempurze to chrupiąca rolka sushi z masago, chrupkami, ogórkiem i majonezem, łącząca delikatność krewetki z wyrazistym smakiem dodatków.",
+            "count": "(masago, chrupki, ogórek, majonez), 8szt."
+          },
+          "2": {
+            "name": "Z surimi ",
+            "description": "Krancz Z surimi to wyjątkowe połączenie masago, chrupiących dodatków, ogórka, grzybów shiitake i delikatnego majonezu, tworzące harmonijną kompozycję smaków i tekstur.",
+            "count": "(masgo, chrupki, ogórek, shitake, majonez), 8szt."
+          }
+        }
+      },
+      "filadelfia": {
+        "title": "Filadelfia",
+        "items": {
+          "1": {
+            "name": "Z łososiem ",
+            "description": "Filadelfia z łososiem to klasyczna rolka sushi, w której delikatny serek śmietankowy łączy się z kremowym awokado i soczystym, świeżym łososiem. To połączenie tworzy aksamitny i harmonijny smak, idealny dla miłośników łagodnych, ale wyrafinowanych kompozycji.",
+            "count": "(serek, awokado), 8szt."
+          },
+          "2": {
+            "name": "Z wędzonym lososiem ",
+            "description": "Filadelfia z wędzonym łososiem to klasyczna rolka sushi składająca się z kremowego serka, świeżego ogórka i delikatnego wędzonego łososia. Zawinięta w idealnie ugotowany ryż i nori, oferuje harmonijną kombinację smaków i kremowej konsystencji.",
+            "count": "(serek, ogórek), 8szt."
+          },
+          "3": {
+            "name": "Unagi",
+            "description": "Filadelfia Unagi to pyszna rolka sushi, łącząca kremowy serek i chrupiący sezam z intensywnym smakiem węgorza (unagi). Dodatek masago nadaje delikatnej tekstury, a świeży ogórek i awokado zapewniają idealną równowagę smaków.",
+            "count": "(sezam, serek, masago, węgorz, ogórek, awokado), 8szt."
+          },
+          "4": {
+            "name": "Z tuńczykiem ",
+            "description": "Filadelfia z tuńczykiem to pyszna rolka sushi z kremowym serkiem, delikatnym tuńczykiem i aksamitnym awokado, owinięta w nori i ryż. Idealne połączenie smaków dla miłośników sushi!",
+            "count": "(serek, awokado), 8szt."
+          },
+          "5": {
+            "name": "Ebi",
+            "description": "Filadelfia Ebi to klasyczna rolka sushi, składająca się z kremowego serka, świeżego łososia i aksamitnego awokado. Delikatne połączenie smaków sprawia, że jest to jedna z najpopularniejszych pozycji w menu sushi.",
+            "count": "(serek, losos, awokado), 8szt."
+          },
+          "6": {
+            "name": "Cheddar",
+            "description": "Filadelfia Cheddar to kremowy serek o intensywnym smaku cheddara i delikatnie słonym aromacie łososia. Idealny do kanapek, przekąsek i sosów, łączy wyrazisty serowy charakter z nutą rybnej delikatności.",
+            "count": "(serek, losoś lekko słony), 8szt."
+          },
+          "7": {
+            "name": "Z krewetką w tempurze ",
+            "description": "Filadelfia z krewetką w tempurze to pyszna rolka sushi z kremowym serkiem, świeżym ogórkiem i łososiem, wzbogacona chrupiącą krewetką w tempurze. Delikatna, a zarazem pełna smaku!",
+            "count": "(serek, ogórek, losoś), 8szt."
+          }
+        }
+      },
+      "smażonyRoll": {
+        "title": "Smażony Roll",
+        "items": {
+          "1": {
+            "name": "Tempura Smok",
+            "description": "",
+            "count": "(węgorz, tamago, awokado, serek), 8szt."
+          },
+          "2": {
+            "name": "Z łososiem i krewetką ",
+            "description": "",
+            "count": "(masago, awokado, ogórek, losoś, krewetka gotowana,serek), 8szt."
+          }
+        }
+      },
+      "pieczonyRoll": {
+        "title": "Pieczony Roll",
+        "items": {
+          "1": {
+            "name": "Z krewetką",
+            "description": "",
+            "count": "(w środku: ogórek surimi. Z góry mieszanka z krewetką), 8szt."
+          },
+          "2": {
+            "name": "Z łososiem",
+            "description": "Pieczony Roll Z Łososiem – to pyszna rolka sushi z pieczonym łososiem, ryżem i nori, wzbogacona kremowym sosem i delikatnymi dodatkami. Idealna propozycja dla miłośników ciepłych sushi!",
+            "count": "(w środku: awokado,  mix z surimi. Z góry mieszanka z losośa), 8szt."
+          },
+          "3": {
+            "name": "Z węgorzem",
+            "description": "",
+            "count": "(w środku serek. Zgóry mieszanka węgorza), 8szt."
+          }
+        }
+      },
+      "salatka": {
+        "title": "Salatka",
+        "items": {
+          "1": {
+            "name": "Wakame goma z sosem sezamowym",
+            "description": ""
+          }
+        }
+      },
+      "przekąski": {
+        "title": "Przekąski",
+        "items": {
+          "1": {
+            "name": "Krewetki w tempurze z sosem",
+            "description": "Chrupiące krewetki w lekkiej tempurze, podawane z aromatycznym sosem, to idealna przekąska dla miłośników wyrafinowanego smaku i delikatnej tekstury.",
+            "count": "6szt."
+          }
+        }
+      },
+      "zupy": {
+        "title": "Zupy",
+        "items": {
+          "1": {
+            "name": "Miso Klasyczna",
+            "description": "Miso Klasyczna to aromatyczna zupa na bazie miso z tofu, grzybami shiitake, wakame, sezamem i szczypiorem, oferująca głęboki, umami smak i idealne rozgrzanie w każdej chwili.",
+            "count": "(tofu, shitake,  wakame, sezam,  szczypior)"
+          },
+          "2": {
+            "name": "Miso z łososiem",
+            "description": "Miso z łososiem to aromatyczna zupa na bazie pasty miso, wzbogacona tofu, grzybami shiitake, wodorostami wakame, sezamem i świeżym szczypiorem, tworząca pełnię smaku i ciepłego komfortu.",
+            "count": "(tofu, shitake,  wakame, sezam,  szczypior)"
+          }
+        }
+      },
+      "ryz": {
+        "title": "Smażony Ryż „Tiachan“",
+        "items": {
+          "1": {
+            "name": "Z jajkiem",
+            "description": "",
+            "count": "(ryż, jajo, szczypior, sezam), 8szt."
+          },
+          "2": {
+            "name": "Z kurczakiem",
+            "description": "",
+            "count": "(ryż, jajo, szczypior, sezam), 8szt."
+          },
+          "3": {
+            "name": "Z krewetką ",
+            "description": "",
+            "count": "(ryż, jajo, szczypior, sezam), 8szt."
+          }
+        }
+      },
+      "zestawy": {
+        "title": "Zestawy",
+        "items": {
+          "1": {
+            "name": "Mega Smok",
+            "description": "",
+            "count": "(Czerwony smok, Pomarańczowy smok,  Złoty smok,  Zielony smok, Tygrysowy smok, Tempura smok)"
+          },
+          "2": {
+            "name": "Mini Smok",
+            "description": "",
+            "count": "(Pomarańczowy smok, Złoty smok, Zielony smok)"
+          },
+          "3": {
+            "name": "Fila Set",
+            "description": "",
+            "count": "(Fila losoś,  Fila tunczyk, Fila Unagi, Fila z wędzonym lososiem)"
+          },
+          "4": {
+            "name": "Beer Set",
+            "description": "",
+            "count": "(Futomaki z wędzonym kurczakiem, Kalifornia z wędzonym lososiem,  kalifornia z lrkko słonym lososiem, Krewetki w tempurze)"
+          },
+          "5": {
+            "name": "Maki Set",
+            "description": "Maki Set to zestaw sushi z rolkami wypełnionymi łososiem, węgorzem, krewetką, wędzonym łososiem, ogórkiem i awokado – idealne połączenie smaków i świeżości w każdej rolce.",
+            "count": "(Maki z: lososiem, węgorzem, krewetką, wędzonym lososiem, ogórkiem, awokado)"
+          },
+          "6": {
+            "name": "Set z łososiem",
+            "description": "",
+            "count": "(Fila losoś, Fila z krewetką w tempurze, Kalifornia z lososiem, Maki zlososiem, Nigiri z lososiem)"
+          }
+        }
+      },
+      "dodatki": {
+        "title": "Dodatki",
+        "items": {
+          "1": {
+            "name": "Sos sezamowy",
+            "description": "",
+            "count": "1szt."            
+          },
+          "2": {
+            "name": "Sos teriyaki ",
+            "description": "",
+            "count": "1szt."
+          },
+          "3": {
+            "name": "Sos sriracza mayo",
+            "description": "",
+            "count": "1szt."
+          },
+          "4": {
+            "name": "Sos sriracza",
+            "description": "",
+            "count": "1szt."
+          },
+          "5": {
+            "name": "Imbir marynowany ",
+            "description": "",
+            "count": "1szt."
+          },
+          "6": {
+            "name": "Sos sojowy",
+            "description": "",
+            "count": "1szt."
+          },
+          "7": {
+            "name": "Wasabi",
+            "description": "",
+            "count": "1szt."
+          }
+        }
+      }
+    },
+    "address": "Pomarańczowa 7, 70-781 Szczecin, Polska",
+    "favoriteButton": "pozycje w zakładkach",
+    "component": {
+      "i18nSelector": {
+        "pl": "Polski",
+        "ua": "Українська",
+        "en": "English"
+      },
+      "modal": {
+        "empty": {
+          "title": "Ups! Wybranych pozycji obecnie brak... =( Dodaj ulubioną pozycję do Menu do ulubionych!",
+          "subtitle": "Całkowita kwota do zapłaty:",
+          "button": "Powrócić do menu "
+        }
+      }
+    },
+    "hours": {
+      "title": "Godziny pracy:",
+      "time1": "Pon. - Pt. 12:00 — 21:00",
+      "time2": "Sobota. - Słońce. 12:00 — 22:00"
+    }
+  }
+}

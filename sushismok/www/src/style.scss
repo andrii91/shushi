@@ -40,3 +40,34 @@ body {
 .modal-opened {
   overflow: hidden !important;
 }
+
+.modal {
+  &-button {
+    text-wrap: nowrap;
+    background: #d1be8f;
+    border: 2px solid #d1be8f;
+    border-radius: 24px;
+    padding: 12px 24px;
+    color: #181818;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+  }
+  &-price {
+    color: #fff;
+    font-size: 21px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    span {
+      font-weight: bold;
+    }
+  }
+}

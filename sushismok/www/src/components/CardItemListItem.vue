@@ -14,7 +14,7 @@
         </div>
       </div>
       <div class="cards-item-list-li-image">
-        <img :src="item.image" :alt="item.name">
+        <img :src="item.image" :alt="item.name" @click="openImage(item)">
         <button 
           type="button" 
           :class="['cards-item-list-li-button', {'is-favorite': isFavorite}]" 
@@ -36,7 +36,7 @@
 import { computed, ref, watchEffect, type PropType } from 'vue';
 import type { MenuItem } from '../types/MenuItem';
 
-const emit = defineEmits(['updateFavorite']);
+const emit = defineEmits(['updateFavorite', 'openMedia']);
 
 const props = defineProps({
   item: {
@@ -77,6 +77,12 @@ const toggleFavorite = (item: MenuItem) => {
   localStorage.setItem("favorite", JSON.stringify(favoriteData.value));
   emit('updateFavorite');
 };
+
+const openImage = (item:MenuItem) => {
+  if(item.image != '/images/menu/empty.svg') {
+    emit('openMedia', item);
+  }
+}
 
 // Автоматично оновлюємо `favoriteData` при зміні localStorage (на випадок оновлення в іншій вкладці)
 watchEffect(() => {

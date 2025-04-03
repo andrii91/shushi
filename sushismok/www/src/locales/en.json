@@ -1,0 +1,411 @@
+{
+  "common": {
+    "menu": {
+      "nigiri": {
+        "title": "Nigiri",
+        "items": {
+          "1": {
+            "name": "With salmon",
+            "description": "A delicate slice of fresh salmon on a bed of rice, perfectly paired with wasabi and soy sauce.",
+            "count": "2 pcs."
+          },
+          "2": {
+            "name": "With tuna",
+            "description": "A juicy piece of tuna with an intense flavor, served on perfectly shaped rice.",
+            "count": "2 pcs."
+          },
+          "3": {
+            "name": "With eel",
+            "description": "Aromatic and slightly sweet grilled eel with Japanese unagi sauce, adding exceptional depth of flavor.",
+            "count": "2 pcs."
+          },
+          "4": {
+            "name": "With smoked salmon",
+            "description": "A classic combination of delicately smoked salmon and lightly seasoned rice that melts in your mouth.",
+            "count": "2 pcs."
+          },
+          "5": {
+            "name": "With shrimp",
+            "description": "A juicy, slightly sweet shrimp placed on soft rice, creating a harmonious and subtle composition.",
+            "count": "2 pcs."
+          }
+        }
+      },
+      "gunkan": {
+        "title": "Gunkan",
+        "items": {
+          "1": {
+            "name": "With masago",
+            "description": "Delicate rice boats filled with fresh masago fish eggs, adding exceptional flavor and crunchiness.",
+            "count": "2 pcs."
+          },
+          "2": {
+            "name": "With hiyashi",
+            "description": "A cool, refreshing gunkan with raw vegetables and dressing, perfect for summer days, offering lightness and freshness in every bite.",
+            "count": "2 pcs."
+          }
+        }
+      },
+      "makiRoll": {
+        "title": "Maki Roll",
+        "items": {
+          "1": {
+            "name": "With cucumber",
+            "description": "A light and refreshing roll with crispy cucumber, perfectly complementing rice and nori.",
+            "count": "6 pcs."
+          },
+          "2": {
+            "name": "With avocado",
+            "description": "Creamy, ripe avocado combined with rice and nori creates a delicate, flavorful roll.",
+            "count": "6 pcs."
+          },
+          "3": {
+            "name": "With surimi",
+            "description": "A roll with surimi, an imitation of shrimp, offering a subtle seafood note combined with rice and vegetables.",
+            "count": "6 pcs."
+          },
+          "4": {
+            "name": "With shrimp",
+            "description": "A roll with juicy shrimp, adding lightness and freshness to the dish.",
+            "count": "6 pcs."
+          },
+          "5": {
+            "name": "With tempura shrimp",
+            "description": "Crispy tempura-battered shrimp, adding exceptional texture and flavor to the roll.",
+            "count": "6 pcs."
+          },
+          "6": {
+            "name": "With salmon",
+            "description": "Fresh salmon combined with rice and nori creates a harmonious and flavorful roll.",
+            "count": "6 pcs."
+          },
+          "7": {
+            "name": "With smoked salmon",
+            "description": "Smoked salmon with a deep flavor that pairs perfectly with rice, creating an intense roll.",
+            "count": "6 pcs."
+          },
+          "8": {
+            "name": "With tuna",
+            "description": "A juicy piece of tuna combined with rice, creating a roll with a bold flavor.",
+            "count": "6 pcs."
+          },
+          "9": {
+            "name": "With eel",
+            "description": "Grilled eel adds a slightly sweet taste to the roll, perfectly complementing rice and unagi sauce.",
+            "count": "6 pcs."
+          }
+        }
+      },
+      "kaliforniaRoll": {
+        "title": "California Roll",
+        "items": {
+          "1": {
+            "name": "With salmon",
+            "description": "A delicious roll with pieces of fresh salmon, avocado, and cucumber, wrapped in sesame seeds, creating a harmonious flavor composition.",
+            "count": "(masago, avocado, cucumber), 8 pcs."
+          },
+          "2": {
+            "name": "With smoked salmon",
+            "description": "A combination of smoked salmon, avocado, and cucumber in a delicate rice wrap, offering an intense, smoky flavor.",
+            "count": "(sesame, avocado, cucumber), 8 pcs."
+          },
+          "3": {
+            "name": "With lightly salted salmon",
+            "description": "An exceptional roll with salted salmon, avocado, and cucumber, wrapped in sesame seeds, offering a subtle, savory taste.",
+            "count": "(sesame, avocado, cucumber), 8 pcs."
+          },
+          "4": {
+            "name": "Classic",
+            "description": "The classic version of the roll with pieces of surimi, avocado, and cucumber, wrapped in sesame seeds, perfect for fans of traditional flavors.",
+            "count": "(surimi, masago, cucumber, avocado, mayonnaise), 8 pcs."
+          }
+        }
+      },
+      "smok": {
+        "title": "Dragon",
+        "items": {
+          "1": {
+            "name": "Red",
+            "description": "A roll with spicy tuna, avocado, and fresh cucumber, coated in a red glaze with chili sauce, adding spiciness and intensity.",
+            "count": "(tuna, eel, masago, cucumber, tamago), 8 pcs."
+          },
+          "2": {
+            "name": "Orange",
+            "description": "A combination of delicate salmon, creamy avocado, and fresh cucumber, wrapped in an orange glaze, adding juiciness and a fruity aftertaste.",
+            "count": "(salmon, eel, masago, cucumber, tamago), 8 pcs."
+          },
+          "3": {
+            "name": "Golden",
+            "description": "An elegant roll with smoked salmon, avocado, and sesame, wrapped in a golden glaze, highlighting its exquisite taste and aroma.",
+            "count": "(eel, masago, cucumber, tamago), 8 pcs."
+          },
+          "4": {
+            "name": "Green",
+            "description": "A fresh roll with avocado, cucumber, and tuna, covered in a green glaze, giving it a refreshing taste and lightness.",
+            "count": "(avocado, eel, masago, cucumber, tamago), 8 pcs."
+          },
+          "5": {
+            "name": "Tiger",
+            "description": "A roll with spicy shrimp, avocado, and cucumber, coated in an aromatic glaze, enriched with crispy toppings, creating a bold and intense flavor.",
+            "count": "(ebi shrimp, eel, masago, cucumber, tamago), 8 pcs."
+          }
+        }
+      },
+      "futomaki": {
+        "title": "Futomaki",
+        "items": {
+          "1": {
+            "name": "With smoked chicken",
+            "description": "",
+            "count": "(chives, tomato, cucumber, iceberg lettuce, sriracha mayo sauce), 8 pcs."
+          },
+          "2": {
+            "name": "With salmon and cheddar cheese",
+            "description": "",
+            "count": "(cream cheese, cooked shrimp, surimi mix, iceberg lettuce, cheddar, salmon), 8 pcs."
+          }
+        }
+      },
+      "krancz": {
+        "title": "Crunch",
+        "items": {
+          "1": {
+            "name": "With tempura shrimp",
+            "description": "Crunch with tempura shrimp is a crispy sushi roll with masago, crunchy toppings, cucumber, and mayonnaise, combining the delicacy of shrimp with the bold flavor of the ingredients.",
+            "count": "(masago, crunch, cucumber, mayonnaise), 8 pcs."
+          },
+          "2": {
+            "name": "With surimi",
+            "description": "Crunch with surimi is a unique combination of masago, crunchy toppings, cucumber, shiitake mushrooms, and delicate mayonnaise, creating a harmonious blend of flavors and textures.",
+            "count": "(masago, crunch, cucumber, shiitake, mayonnaise), 8 pcs."
+          }
+        }
+      },
+      "filadelfia": {
+        "title": "Philadelphia",
+        "items": {
+          "1": {
+            "name": "With salmon",
+            "description": "Philadelphia with salmon is a classic sushi roll where delicate cream cheese blends with creamy avocado and juicy, fresh salmon. This combination creates a velvety and harmonious taste, perfect for lovers of mild yet sophisticated compositions.",
+            "count": "(cream cheese, avocado), 8 pcs."
+          },
+          "2": {
+            "name": "With smoked salmon",
+            "description": "Philadelphia with smoked salmon is a classic sushi roll consisting of creamy cheese, fresh cucumber, and delicate smoked salmon. Wrapped in perfectly cooked rice and nori, it offers a harmonious combination of flavors and a creamy texture.",
+            "count": "(cream cheese, cucumber), 8 pcs."
+          },
+          "3": {
+            "name": "Unagi",
+            "description": "Philadelphia Unagi is a delicious sushi roll combining creamy cheese and crunchy sesame with the intense flavor of eel (unagi). The addition of masago provides a delicate texture, while fresh cucumber and avocado ensure the perfect balance of flavors.",
+            "count": "(sesame, cream cheese, masago, eel, cucumber, avocado), 8 pcs."
+          },
+          "4": {
+            "name": "With tuna",
+            "description": "Philadelphia with tuna is a delicious sushi roll with creamy cheese, delicate tuna, and velvety avocado, wrapped in nori and rice. A perfect flavor combination for sushi lovers!",
+            "count": "(cream cheese, avocado), 8 pcs."
+          },
+          "5": {
+            "name": "Ebi",
+            "description": "Philadelphia Ebi is a classic sushi roll consisting of creamy cheese, fresh salmon, and velvety avocado. The delicate combination of flavors makes it one of the most popular sushi menu choices.",
+            "count": "(cream cheese, salmon, avocado), 8 pcs."
+          },
+          "6": {
+            "name": "Cheddar",
+            "description": "Philadelphia Cheddar is creamy cheese with an intense cheddar flavor and a slightly salty aroma of salmon. Perfect for sandwiches, snacks, and sauces, it combines a bold cheesy character with a hint of fish delicacy.",
+            "count": "(cream cheese, lightly salted salmon), 8 pcs."
+          },
+          "7": {
+            "name": "With tempura shrimp",
+            "description": "Philadelphia with tempura shrimp is a delicious sushi roll with creamy cheese, fresh cucumber, and salmon, enriched with crispy tempura shrimp. Delicate yet full of flavor!",
+            "count": "(cream cheese, cucumber, salmon), 8 pcs."
+          }
+        }
+      },
+      "smażonyRoll": {
+        "title": "Fried Roll",
+        "items": {
+          "1": {
+            "name": "Tempura Dragon",
+            "description": "",
+            "count": "(eel, tamago, avocado, cream cheese), 8 pcs."
+          },
+          "2": {
+            "name": "With salmon and shrimp",
+            "description": "",
+            "count": "(masago, avocado, cucumber, salmon, cooked shrimp, cream cheese), 8 pcs."
+          }
+        }
+      },
+      "pieczonyRoll": {
+        "title": "Baked Roll",
+        "items": {
+          "1": {
+            "name": "With shrimp",
+            "description": "",
+            "count": "(inside: cucumber, surimi. On top: shrimp mix), 8 pcs."
+          },
+          "2": {
+            "name": "With salmon",
+            "description": "Baked Roll with Salmon – a delicious sushi roll with baked salmon, rice, and nori, enhanced with a creamy sauce and delicate toppings. A perfect choice for warm sushi lovers!",
+            "count": "(inside: avocado, surimi mix. On top: salmon mix), 8 pcs."
+          },
+          "3": {
+            "name": "With eel",
+            "description": "",
+            "count": "(inside: cream cheese. On top: eel mix), 8 pcs."
+          }
+        }
+      },
+      "salatka": {
+        "title": "Salad",
+        "items": {
+          "1": {
+            "name": "Wakame goma with sesame sauce",
+            "description": ""
+          }
+        }
+      },
+      "przekąski": {
+        "title": "Snacks",
+        "items": {
+          "1": {
+            "name": "Tempura Shrimp with Sauce",
+            "description": "Crispy shrimp in light tempura, served with an aromatic sauce, is the perfect snack for those who enjoy refined taste and delicate texture.",
+            "count": "6 pcs"
+          }
+        }
+      },
+      "zupy": {
+        "title": "Soups",
+        "items": {
+          "1": {
+            "name": "Classic Miso",
+            "description": "Classic Miso is an aromatic soup made with miso, tofu, shiitake mushrooms, wakame, sesame, and chives, offering a deep umami flavor and perfect warmth at any time.",
+            "count": "(tofu, shiitake, wakame, sesame, chives)"
+          },
+          "2": {
+            "name": "Miso with Salmon",
+            "description": "Miso with Salmon is an aromatic soup based on miso paste, enriched with tofu, shiitake mushrooms, wakame seaweed, sesame, and fresh chives, creating a full flavor and warm comfort.",
+            "count": "(tofu, shiitake, wakame, sesame, chives)"
+          }
+        }
+      },
+      "ryz": {
+        "title": "Fried Rice 'Tiachan'",
+        "items": {
+          "1": {
+            "name": "With Egg",
+            "description": "",
+            "count": "(rice, egg, chives, sesame), 8 pcs"
+          },
+          "2": {
+            "name": "With Chicken",
+            "description": "",
+            "count": "(rice, egg, chives, sesame), 8 pcs"
+          },
+          "3": {
+            "name": "With Shrimp",
+            "description": "",
+            "count": "(rice, egg, chives, sesame), 8 pcs"
+          }
+        }
+      },
+      "zestawy": {
+        "title": "Sets",
+        "items": {
+          "1": {
+            "name": "Mega Dragon",
+            "description": "",
+            "count": "(Red dragon, Orange dragon, Golden dragon, Green dragon, Tiger dragon, Tempura dragon)"
+          },
+          "2": {
+            "name": "Mini Dragon",
+            "description": "",
+            "count": "(Orange dragon, Golden dragon, Green dragon)"
+          },
+          "3": {
+            "name": "Fila Set",
+            "description": "",
+            "count": "(Fila salmon, Fila tuna, Fila Unagi, Fila with smoked salmon)"
+          },
+          "4": {
+            "name": "Beer Set",
+            "description": "",
+            "count": "(Futomaki with smoked chicken, California with smoked salmon, California with lightly salted salmon, Tempura shrimp)"
+          },
+          "5": {
+            "name": "Maki Set",
+            "description": "Maki Set is a sushi set with rolls filled with salmon, eel, shrimp, smoked salmon, cucumber, and avocado — the perfect combination of flavors and freshness in every roll.",
+            "count": "(Maki with: salmon, eel, shrimp, smoked salmon, cucumber, avocado)"
+          },
+          "6": {
+            "name": "Salmon Set",
+            "description": "",
+            "count": "(Fila salmon, Fila with tempura shrimp, California with salmon, Maki with salmon, Nigiri with salmon)"
+          }
+        }
+      },
+      "dodatki": {
+        "title": "Add-ons",
+        "items": {
+          "1": {
+            "name": "Sesame Sauce",
+            "description": "",
+            "count": "1 pc"
+          },
+          "2": {
+            "name": "Teriyaki Sauce",
+            "description": "",
+            "count": "1 pc"
+          },
+          "3": {
+            "name": "Sriracha Mayo Sauce",
+            "description": "",
+            "count": "1 pc"
+          },
+          "4": {
+            "name": "Sriracha Sauce",
+            "description": "",
+            "count": "1 pc"
+          },
+          "5": {
+            "name": "Pickled Ginger",
+            "description": "",
+            "count": "1 pc"
+          },
+          "6": {
+            "name": "Soy Sauce",
+            "description": "",
+            "count": "1 pc"
+          },
+          "7": {
+            "name": "Wasabi",
+            "description": "",
+            "count": "1 pc"
+          }
+        }
+      }
+    },
+    "address": "Pomarańczowa 7, 70-781 Szczecin, Poland",
+    "favoriteButton": "items in bookmarks",
+    "component": {
+      "i18nSelector": {
+        "pl": "Polski",
+        "ua": "Українська",
+        "en": "English"
+      },
+      "modal": {
+        "empty": {
+          "title": "Oops! No selected items at the moment... =( Add a favorite item to the Menu to favorites!",
+          "subtitle": "Total amount to pay:",
+          "button": "Return to menu"
+        }
+      }
+    },
+    "hours": {
+      "title": "Opening hours:",
+      "time1": "Mon - Fri 12:00 - 21:00",
+      "time2": "Sat - Sun 12:00 - 22:00"
+    }
+  }
+}
