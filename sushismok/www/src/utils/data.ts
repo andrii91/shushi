@@ -348,10 +348,10 @@ export const getMenu = (t: (key: string) => string): MenuCategory[] => [
       {
         id: 38,
         price: 37,
-        image: "/images/menu/empty.svg",
-        name: t("common.menu.smażonyRoll.items.1.name"),
-        description: t("common.menu.smażonyRoll.items.1.description"),
-        count: t("common.menu.smażonyRoll.items.1.count"),
+        image: "/images/menu/38.webp",
+        name: t("common.menu.smażonyRoll.items.2.name"),
+        description: t("common.menu.smażonyRoll.items.2.description"),
+        count: t("common.menu.smażonyRoll.items.2.count"),
       },
     ],
   },
@@ -511,7 +511,7 @@ export const getMenu = (t: (key: string) => string): MenuCategory[] => [
       {
         id: 54,
         price: 150,
-        image: "/images/menu/empty.svg",
+        image: "/images/menu/54.webp",
         name: t("common.menu.zestawy.items.6.name"),
         description: t("common.menu.zestawy.items.6.description"),
         count: t("common.menu.zestawy.items.6.count"),

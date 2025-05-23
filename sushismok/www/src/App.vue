@@ -112,8 +112,6 @@
 
     <button @click="closeModal" type="button" class="modal-button">  {{ t("common.component.modal.empty.button") }} </button>
   </Modal>
-
-  {{ t("common.menu.dodatki.items.6.name") }}
 </template>
 
 <script setup lang="ts">
@@ -125,6 +123,29 @@ import Modal from "./components/Modal.vue";
 import Skeleton from "./components/Skeleton.vue";
 import { useI18n } from "vue-i18n";
 import I18nSelector from "./components/I18nSelector.vue";
+import { useHead } from '@vueuse/head'
+
+useHead({
+  title: 'Sushi Smok - Menu',
+  meta: [
+    { name: 'Title', content: 'Sushi Smok - Menu' },
+    {
+      name: 'description',
+      content:
+        'Sushi Smok - Menu | Sushi, rolki i inne dania kuchni japońskiej! Dostawa i odbiór osobisty! | Tel: +48 880 503 760 | Adres: Pomarańczowa 7, 70-781 Szczecin, Polska'
+    },
+    { property: 'og:type', content: 'article' },
+    {
+      property: 'og:description',
+      content:
+        'Sushi Smok - Menu | Sushi, rolki i inne dania kuchni japońskiej! Dostawa i odbiór osobisty! | Tel: +48 880 503 760 | Adres: Pomarańczowa 7, 70-781 Szczecin, Polska'
+    },
+    { property: 'og:url', content: 'https://sushismok.ct.ws/' },
+    { property: 'og:sitename', content: 'Sushi Smok - Menu' },
+    { property: 'og:title', content: 'Sushi Smok - Menu' },
+    { property: 'og:image', content: 'https://sushismok.ct.ws/images/og.jpeg' }
+  ]
+})
 
 const { t, locale } = useI18n();
 const favoriteData = ref<MenuItem[]>([]);

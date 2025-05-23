@@ -231,7 +231,7 @@
           },
           "2": {
             "name": "Z łososiem i krewetką ",
-            "description": "",
+            "description": "Smażony roll z łososiem i krewetką, z dodatkiem masago, awokado, ogórka i serka. Pyszna, chrupiąca kompozycja w 8 kawałkach – idealna na każdą okazję!",
             "count": "(masago, awokado, ogórek, losoś, krewetka gotowana,serek), 8szt."
           }
         }
@@ -316,32 +316,32 @@
           "1": {
             "name": "Mega Smok",
             "description": "",
-            "count": "(Czerwony smok, Pomarańczowy smok,  Złoty smok,  Zielony smok, Tygrysowy smok, Tempura smok)"
+            "count": "(Czerwony smok, Pomarańczowy smok,  Złoty smok,  Zielony smok, Tygrysowy smok, Tempura smok), 48 szt"
           },
           "2": {
             "name": "Mini Smok",
             "description": "",
-            "count": "(Pomarańczowy smok, Złoty smok, Zielony smok)"
+            "count": "(Pomarańczowy smok, Złoty smok, Zielony smok), 24szt"
           },
           "3": {
             "name": "Fila Set",
             "description": "",
-            "count": "(Fila losoś,  Fila tunczyk, Fila Unagi, Fila z wędzonym lososiem)"
+            "count": "(Fila losoś,  Fila Ebi, Fila Unagi, Fila z wędzonym lososiem), 32szt"
           },
           "4": {
             "name": "Beer Set",
             "description": "",
-            "count": "(Futomaki z wędzonym kurczakiem, Kalifornia z wędzonym lososiem,  kalifornia z lrkko słonym lososiem, Krewetki w tempurze)"
+            "count": "(Futomaki z wędzonym kurczakiem, Kalifornia z wędzonym lososiem,  kalifornia z lrkko słonym lososiem, Krewetki w tempurze), 30 szt"
           },
           "5": {
             "name": "Maki Set",
             "description": "Maki Set to zestaw sushi z rolkami wypełnionymi łososiem, węgorzem, krewetką, wędzonym łososiem, ogórkiem i awokado – idealne połączenie smaków i świeżości w każdej rolce.",
-            "count": "(Maki z: lososiem, węgorzem, krewetką, wędzonym lososiem, ogórkiem, awokado)"
+            "count": "(Maki z: lososiem, węgorzem, krewetką, wędzonym lososiem, ogórkiem, awokado), 36szt"
           },
           "6": {
             "name": "Set z łososiem",
             "description": "",
-            "count": "(Fila losoś, Fila z krewetką w tempurze, Kalifornia z lososiem, Maki zlososiem, Nigiri z lososiem)"
+            "count": "(Fila losoś, Fila z krewetką w tempurze, Kalifornia z lososiem, Maki zlososiem, Nigiri z lososiem), 32szt"
           }
         }
       },

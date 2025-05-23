@@ -231,7 +231,7 @@
           },
           "2": {
             "name": "With salmon and shrimp",
-            "description": "",
+            "description": "Fried roll with salmon and shrimp, with masago, avocado, cucumber, and cream cheese. A tasty, crispy combo in 8 pieces – perfect for any occasion!",
             "count": "(masago, avocado, cucumber, salmon, cooked shrimp, cream cheese), 8 pcs."
           }
         }
@@ -316,32 +316,32 @@
           "1": {
             "name": "Mega Dragon",
             "description": "",
-            "count": "(Red dragon, Orange dragon, Golden dragon, Green dragon, Tiger dragon, Tempura dragon)"
+            "count": "(Red dragon, Orange dragon, Golden dragon, Green dragon, Tiger dragon, Tempura dragon), 48 pcs"
           },
           "2": {
             "name": "Mini Dragon",
             "description": "",
-            "count": "(Orange dragon, Golden dragon, Green dragon)"
+            "count": "(Orange dragon, Golden dragon, Green dragon), 24 pcs"
           },
           "3": {
             "name": "Fila Set",
             "description": "",
-            "count": "(Fila salmon, Fila tuna, Fila Unagi, Fila with smoked salmon)"
+            "count": "(Fila salmon, Fila Ebi, Fila Unagi, Fila with smoked salmon), 32 pcs"
           },
           "4": {
             "name": "Beer Set",
             "description": "",
-            "count": "(Futomaki with smoked chicken, California with smoked salmon, California with lightly salted salmon, Tempura shrimp)"
+            "count": "(Futomaki with smoked chicken, California with smoked salmon, California with lightly salted salmon, Tempura shrimp), 30 pcs"
           },
           "5": {
             "name": "Maki Set",
-            "description": "Maki Set is a sushi set with rolls filled with salmon, eel, shrimp, smoked salmon, cucumber, and avocado — the perfect combination of flavors and freshness in every roll.",
+            "description": "Maki Set is a sushi set with rolls filled with salmon, eel, shrimp, smoked salmon, cucumber, and avocado — the perfect combination of flavors and freshness in every roll. 36 pcs",
             "count": "(Maki with: salmon, eel, shrimp, smoked salmon, cucumber, avocado)"
           },
           "6": {
             "name": "Salmon Set",
             "description": "",
-            "count": "(Fila salmon, Fila with tempura shrimp, California with salmon, Maki with salmon, Nigiri with salmon)"
+            "count": "(Fila salmon, Fila with tempura shrimp, California with salmon, Maki with salmon, Nigiri with salmon), 32 pcs"
           }
         }
       },
