@@ -1,6 +1,6 @@
 <template>
-  <li class="cards-item-list-li">
-    <div class="cards-item-list-li-row" >
+  <li class="cards-item-list-li" :data-id="item.id">
+    <div class="cards-item-list-li-row">
       <div class="cards-item-list-li-text">
         <div class="cards-item-list-li-name">{{ item.name }}</div>
         <div class="cards-item-list-li-price">{{ item.price }}zł</div>
@@ -11,6 +11,30 @@
           <p v-if="!!item.count" >
             {{ item.count }}
           </p>
+          <div v-if="!!item.rollsDescription" class="rolls-details">
+            <button 
+              v-if="!showRollsDetails" 
+              @click="showRollsDetails = true" 
+              class="details-button"
+            >
+              {{ t("common.buttons.details") }}
+            </button>
+            <transition name="fade">
+              <p v-if="showRollsDetails" class="mb-2 rolls-description">
+                {{ item.rollsDescription }}
+              </p>
+            </transition>
+            <transition name="fade">
+                        <button 
+              v-if="showRollsDetails" 
+              @click="showRollsDetails = false" 
+              class="details-button"
+            >
+              {{ t("common.buttons.hide") }}
+            </button>
+            </transition>
+          </div>
+          
         </div>
       </div>
       <div class="cards-item-list-li-image">
@@ -35,6 +59,7 @@
 <script lang="ts" setup>
 import { computed, ref, watchEffect, type PropType } from 'vue';
 import type { MenuItem } from '../types/MenuItem';
+import { useI18n } from 'vue-i18n';
 
 const emit = defineEmits(['updateFavorite', 'openMedia']);
 
@@ -45,7 +70,10 @@ const props = defineProps({
   }
 });
 
+const { t } = useI18n();
+
 const favoriteData = ref<MenuItem[]>([]);
+const showRollsDetails = ref(false);
 
 // Завантажуємо улюблені елементи з localStorage при завантаженні компонента
 const loadFavorites = () => {
@@ -182,6 +210,33 @@ watchEffect(() => {
         font-size: 12px;
       }
 
+      .rolls-description {
+        font-size: 11px;
+        color: #d1be8f;
+        font-style: italic;
+        line-height: 1.4;
+      }
+
+      .rolls-details {
+        margin: 8px 0;
+      }
+
+      .details-button {
+        background: none;
+        border: 1px solid #d1be8f;
+        color: #d1be8f;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          background: #d1be8f;
+          color: #181818;
+        }
+      }
+
       &-icon {
         width: 8px;
         height: 8px;
@@ -203,6 +258,16 @@ watchEffect(() => {
 
 .v-enter-from,
 .v-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
 }
 </style>

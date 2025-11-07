@@ -5,6 +5,7 @@ export interface MenuItem {
   image: string;
   description?: string;
   count?: string;
+  rollsDescription?: string;
 };
 
 export interface MenuCategory {

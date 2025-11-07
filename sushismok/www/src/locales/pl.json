@@ -118,6 +118,11 @@
             "name": "Klasyczna",
             "description": "Klasyczna wersja rolla z kawałkami surimi,  awokado,  ogórkiem, otoczona ziarnami sezamu, idealna dla fanów tradycyjnych smaków.",
             "count": "(surimi, masago, ogórek, awokado, majonez), 8szt."
+          },
+          "5": {
+            "name": "Vega ról",
+            "description": "Vega Roll – lekka rolka z ogórkiem, awokado i sałatką wakame goma.",
+            "count": "(ogórek, awokado, wakame goma), 8szt."
           }
         }
       },
@@ -156,13 +161,18 @@
         "items": {
           "1": {
             "name": "Z wędzonym kurczakiem ",
-            "description": "",
+            "description": "Futomaki z wędzonym kurczakiem to sycąca rolka z dodatkiem świeżych warzyw i pikantnego sosu sriracha mayo, tworząca harmonijną kompozycję smaków.",
             "count": "(szczypior, pomidor, ogórek, sałata lodowa, sos sriracza mayo), 8szt."
           },
           "2": {
             "name": "Z łososiem i serem cheddar ",
-            "description": "",
+            "description": "Futomaki z łososiem i serem cheddar to wyjątkowe połączenie świeżego łososia, kremowego serka, gotowanej krewetki i intensywnego smaku cheddara.",
             "count": "(serek, krewetka gotowana,mix z surimi, sałata lodowa, cheddar, losoś), 8szt."
+          },
+          "3": {
+            "name": "Fudji",
+            "description": "W środku Serek śmietankowy i awokado. Do góry idzie łosoś z sosem sojowym, sezamem i olejem sezamowym.",
+            "count": "8szt."
           }
         }
       },
@@ -177,7 +187,7 @@
           "2": {
             "name": "Z surimi ",
             "description": "Krancz Z surimi to wyjątkowe połączenie masago, chrupiących dodatków, ogórka, grzybów shiitake i delikatnego majonezu, tworzące harmonijną kompozycję smaków i tekstur.",
-            "count": "(masgo, chrupki, ogórek, shitake, majonez), 8szt."
+            "count": "(masago, chrupki, ogórek, shitake, majonez), 8szt."
           }
         }
       },
@@ -218,6 +228,16 @@
             "name": "Z krewetką w tempurze ",
             "description": "Filadelfia z krewetką w tempurze to pyszna rolka sushi z kremowym serkiem, świeżym ogórkiem i łososiem, wzbogacona chrupiącą krewetką w tempurze. Delikatna, a zarazem pełna smaku!",
             "count": "(serek, ogórek, losoś), 8szt."
+          },
+          "8": {
+            "name": "Double shrimp",
+            "description": "Do góry idzie krewetka gotowana z sosem słodki chili. W środku krewetka w tempurze, serek śmietankowy, ogórek",
+            "count": "8szt."
+          },
+          "9": {
+            "name": "Fila de lux",
+            "description": "Fila de Lux – delikatna rolka z awokado, ogórkiem, serkiem i masago w środku, zwieńczona świeżym łososiem.",
+            "count": "(W środku: awokado, ogórek, serek, masago. Na górze: łosoś surowy.), 8szt."
           }
         }
       },
@@ -226,7 +246,7 @@
         "items": {
           "1": {
             "name": "Tempura Smok",
-            "description": "",
+            "description": "Tempura Smok to chrupiąca wersja klasycznego smoczego rolla, gdzie węgorz, tamago, awokado i serek tworzą wyjątkową kompozycję smaków i tekstur.",
             "count": "(węgorz, tamago, awokado, serek), 8szt."
           },
           "2": {
@@ -241,7 +261,7 @@
         "items": {
           "1": {
             "name": "Z krewetką",
-            "description": "",
+            "description": "Pieczony roll z krewetką to aromatyczna rolka z ogórkiem i surimi w środku oraz mieszanką krewetki na górze, tworząca delikatny smak i kremową teksturę.",
             "count": "(w środku: ogórek surimi. Z góry mieszanka z krewetką), 8szt."
           },
           "2": {
@@ -251,7 +271,7 @@
           },
           "3": {
             "name": "Z węgorzem",
-            "description": "",
+            "description": "Pieczony roll z węgorzem to aromatyczna rolka z kremowym serkiem w środku i mieszanką węgorza na górze, tworząca intensywny smak i delikatną teksturę.",
             "count": "(w środku serek. Zgóry mieszanka węgorza), 8szt."
           }
         }
@@ -261,7 +281,7 @@
         "items": {
           "1": {
             "name": "Wakame goma z sosem sezamowym",
-            "description": ""
+            "description": "Tradycyjna japońska sałatka z wodorostów wakame z sezamem, podawana z aromatycznym sosem sezamowym - lekka i orzeźwiająca przekąska."
           }
         }
       },
@@ -291,21 +311,21 @@
         }
       },
       "ryz": {
-        "title": "Smażony Ryż „Tiachan“",
+        "title": "Smażony Ryż \"Tiachan\"",
         "items": {
           "1": {
             "name": "Z jajkiem",
-            "description": "",
+            "description": "Klasyczny smażony ryż z jajkiem, szczypiorem i sezamem - aromatyczna i sycąca potrawa w stylu azjatyckim.",
             "count": "(ryż, jajo, szczypior, sezam), 8szt."
           },
           "2": {
             "name": "Z kurczakiem",
-            "description": "",
+            "description": "Smażony ryż z kurczakiem, jajkiem, szczypiorem i sezamem - pożywna potrawa z delikatnym mięsem i aromatycznymi dodatkami.",
             "count": "(ryż, jajo, szczypior, sezam), 8szt."
           },
           "3": {
             "name": "Z krewetką ",
-            "description": "",
+            "description": "Smażony ryż z krewetką, jajkiem, szczypiorem i sezamem - morska wersja klasycznego dania z delikatnym smakiem skorupiaków.",
             "count": "(ryż, jajo, szczypior, sezam), 8szt."
           }
         }
@@ -315,33 +335,63 @@
         "items": {
           "1": {
             "name": "Mega Smok",
-            "description": "",
+            "description": "Kompletny zestaw wszystkich smoczych rolli - idealny dla miłośników intensywnych smaków i wyrafinowanych kompozycji.",
+            "rollsDescription": "Czerwony smok: pikantny tuńczyk, awokado, ogórek z czerwoną glazurą i sosem chili. Pomarańczowy smok: delikatny łosoś, awokado, ogórek z pomarańczową glazurą. Złoty smok: wędzony łosoś, awokado, sezam ze złotą glazurą. Zielony smok: awokado, ogórek, tuńczyk z zieloną glazurą. Tygrysowy smok: pikantna krewetka Ebi, awokado, ogórek z aromatyczną glazurą. Tempura smok: chrupiąca wersja z węgorzem, tamago, awokado i serkiem.",
             "count": "(Czerwony smok, Pomarańczowy smok,  Złoty smok,  Zielony smok, Tygrysowy smok, Tempura smok), 48 szt"
           },
           "2": {
             "name": "Mini Smok",
-            "description": "",
+            "description": "Mniejszy zestaw smoczych rolli - doskonały wybór dla mniejszych grup, zachowujący różnorodność smaków.",
+            "rollsDescription": "Pomarańczowy smok: delikatny łosoś, awokado, ogórek z pomarańczową glazurą. Złoty smok: wędzony łosoś, awokado, sezam ze złotą glazurą. Zielony smok: awokado, ogórek, tuńczyk z zieloną glazurą.",
             "count": "(Pomarańczowy smok, Złoty smok, Zielony smok), 24szt"
           },
           "3": {
             "name": "Fila Set",
-            "description": "",
+            "description": "Zestaw klasycznych rolli Filadelfia w różnych wariantach - od świeżego łososia po wędzonego i węgorza.",
+            "rollsDescription": "Fila łosoś: delikatny serek śmietankowy z kremowym awokado i świeżym łososiem. Fila Ebi: kremowy serek ze świeżym łososiem i awokado. Fila Unagi: kremowy serek z chrupiącym sezamem i intensywnym smakiem węgorza. Fila z wędzonym łososiem: kremowy serek ze świeżym ogórkiem i wędzonym łososiem.",
             "count": "(Fila losoś,  Fila Ebi, Fila Unagi, Fila z wędzonym lososiem), 32szt"
           },
           "4": {
             "name": "Beer Set",
-            "description": "",
+            "description": "Idealny zestaw do piwa - połączenie różnych smaków i tekstur, które świetnie komponują się z zimnym napojem.",
+            "rollsDescription": "Futomaki z wędzonym kurczakiem: sycąca rolka ze świeżymi warzywami i pikantnym sosem sriracha mayo. Kalifornia z wędzonym łososiem: wędzony łosoś, awokado, ogórek z sezamem. Kalifornia z lekko solonym łososiem: solony łosoś, awokado, ogórek z sezamem. Krewetki w tempurze: chrupiące krewetki w lekkiej tempurze z sosem.",
             "count": "(Futomaki z wędzonym kurczakiem, Kalifornia z wędzonym lososiem,  kalifornia z lrkko słonym lososiem, Krewetki w tempurze), 30 szt"
           },
           "5": {
             "name": "Maki Set",
             "description": "Maki Set to zestaw sushi z rolkami wypełnionymi łososiem, węgorzem, krewetką, wędzonym łososiem, ogórkiem i awokado – idealne połączenie smaków i świeżości w każdej rolce.",
+            "rollsDescription": "Maki z łososiem: świeży łosoś z ryżem i nori. Maki z węgorzem: grillowany węgorz z sosem unagi. Maki z krewetką: soczysta krewetka z ryżem. Maki z wędzonym łososiem: wędzony łosoś z głębokim smakiem. Maki z ogórkiem: lekka i orzeźwiająca rolka. Maki z awokado: kremowe awokado z ryżem i nori.",
             "count": "(Maki z: lososiem, węgorzem, krewetką, wędzonym lososiem, ogórkiem, awokado), 36szt"
           },
           "6": {
             "name": "Set z łososiem",
-            "description": "",
+            "description": "Dedykowany zestaw dla miłośników łososia - różne sposoby przygotowania tej popularnej ryby.",
+            "rollsDescription": "Fila łosoś: delikatny serek śmietankowy z kremowym awokado i świeżym łososiem. Fila z krewetką w tempurze: kremowy serek z chrupiącą krewetką w tempurze. Kalifornia z łososiem: świeży łosoś, awokado, ogórek z masago. Maki z łososiem: świeży łosoś z ryżem i nori. Nigiri z łososiem: delikatny plaster świeżego łososia na poduszce z ryżu.",
             "count": "(Fila losoś, Fila z krewetką w tempurze, Kalifornia z lososiem, Maki zlososiem, Nigiri z lososiem), 32szt"
+          },
+          "7": {
+            "name": "Zestaw Party set",
+            "description": "Duży zestaw idealny na imprezy i spotkania - różnorodność smaków dla każdego gościa.",
+            "rollsDescription": "Fila z łososiem: delikatny serek śmietankowy z kremowym awokado i świeżym łososiem. Kalifornia z wędzonym łososiem: wędzony łosoś, awokado, ogórek z sezamem. Zielony Smok: awokado, ogórek, tuńczyk z zieloną glazurą. Fila Cheddar: kremowy serek z intensywnym smakiem cheddara i łososiem. Fila Ebi: kremowy serek ze świeżym łososiem i awokado. Futomaki Fudji: kremowy serek i awokado z łososiem na górze. Krancz z krewetką: chrupiąca rolka z masago, chrupkami, ogórkiem. Klasyczna Kalifornia: surimi, masago, ogórek, awokado, majonez.",
+            "count": "64szt."
+          },
+          "8": {
+            "name": "Zestaw Krewetkowy",
+            "description": "Zestaw dla miłośników krewetek - różne sposoby przygotowania i podania tego delikatnego skorupiaka.",
+            "rollsDescription": "Fila Ebi: kremowy serek ze świeżym łososiem i awokado. Krancz z krewetką w tempurze: chrupiąca rolka z masago, chrupkami, ogórkiem. Fila Double shrimp: gotowana krewetka na górze, krewetka w tempurze w środku. Maki z krewetką: soczysta krewetka z ryżem. Maki z krewetką w tempurze: chrupiąca krewetka w cieście tempura.",
+            "count": "36szt."
+          },
+          "9": {
+            "name": "Zestaw Pieczony",
+            "description": "Zestaw ciepłych rolli - idealny dla tych, którzy preferują podgrzane sushi.",
+            "rollsDescription": "Pieczony roll z krewetką: aromatyczna rolka z ogórkiem i surimi w środku oraz mieszanką krewetki na górze. Pieczony roll z łososiem: pieczony łosoś z awokado i mieszanką z surimi. Pieczony roll z węgorzem: kremowy serek w środku i mieszanka węgorza na górze.",
+            "count": "24szt."
+          },
+          "10": {
+            "name": "Red set",
+            "description": "Czerwony zestaw - połączenie popularnych rolli w intensywnych kolorach i smakach.",
+            "rollsDescription": "Fila z łososiem: delikatny serek śmietankowy z kremowym awokado i świeżym łososiem. Pomarańczowy smok: delikatny łosoś, awokado, ogórek z pomarańczową glazurą. Fila z krewetką w tempurze: kremowy serek z chrupiącą krewetką w tempurze. Fila de lux: awokado, ogórek, serek, masago w środku ze świeżym łososiem na górze.",
+            "count": "32szt."
           }
         }
       },
@@ -350,37 +400,52 @@
         "items": {
           "1": {
             "name": "Sos sezamowy",
-            "description": "",
+            "description": "Aromatyczny sos sezamowy - idealny dodatek do sushi, nadający potrawom głęboki, orzechowy smak.",
             "count": "1szt."            
           },
           "2": {
             "name": "Sos teriyaki ",
-            "description": "",
+            "description": "Klasyczny japoński sos teriyaki - słodko-słony sos z dodatkiem imbiru i czosnku, doskonały do sushi i innych potraw azjatyckich.",
             "count": "1szt."
           },
           "3": {
             "name": "Sos sriracza mayo",
-            "description": "",
+            "description": "Pikantny sos sriracha mayo - połączenie ostrości chili z kremowym majonezem, dodający wyrazistości każdej potrawie.",
             "count": "1szt."
           },
           "4": {
             "name": "Sos sriracza",
-            "description": "",
+            "description": "Ostry sos sriracha - klasyczny azjatycki sos chili, dodający intensywnej ostrości i smaku.",
             "count": "1szt."
           },
           "5": {
             "name": "Imbir marynowany ",
-            "description": "",
+            "description": "Tradycyjny marynowany imbir - orzeźwiający dodatek do sushi, pomagający oczyścić podniebienie między różnymi smakami.",
             "count": "1szt."
           },
           "6": {
             "name": "Sos sojowy",
-            "description": "",
+            "description": "Klasyczny sos sojowy - niezbędny dodatek do sushi, nadający potrawom głęboki, słony smak umami.",
             "count": "1szt."
           },
           "7": {
             "name": "Wasabi",
-            "description": "",
+            "description": "Ostry japoński chrzan wasabi - tradycyjny dodatek do sushi, dodający intensywnej ostrości i charakterystycznego smaku.",
+            "count": "1szt."
+          }
+        }
+      },
+      "sandwiches": {
+        "title": "Sendwicz",
+        "items": {
+          "1": {
+            "name": "Z serem Cheddar i lekko słonym łososiem",
+            "description": "Pyszna sendwicz z serem Cheddar, delikatnie słonym łososiem i sałatką lodową",
+            "count": "1szt."
+          },
+          "2": {
+            "name": "Z łososiem i awokado z serem śmietankowym",
+            "description": "Sendwicz z łososiem i awokado z dodatkiem serka śmietankowego",
             "count": "1szt."
           }
         }
@@ -404,8 +469,12 @@
     },
     "hours": {
       "title": "Godziny pracy:",
-      "time1": "Pon. - Pt. 12:00 — 21:00",
-      "time2": "Sobota. - Słońce. 12:00 — 22:00"
+      "time1": "Pon. - Czw. 12:00 — 21:00",
+      "time2": "Pt. - Nd. 12:00 — 22:00"
+    },
+    "buttons": {
+      "details": "Szczegóły",
+      "hide": "Ukryj"
     }
   }
 }
