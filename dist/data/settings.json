@@ -1,0 +1,45 @@
+{
+    "name": "Калина",
+    "phone": "+380 44 123 45 67",
+    "logo": "\/images\/site\/img_6a24329de08e58.47459536.jpg",
+    "headerImage": "\/images\/site\/img_6a2432a6c7e833.80182159.png",
+    "mapUrl": "https:\/\/maps.google.com\/?q=Khreshchatyk+1+Kyiv",
+    "address": {
+        "pl": "ul. Chreszczatyk 1, 01001 Kijów, Ukraina",
+        "en": "1 Khreshchatyk St., 01001 Kyiv, Ukraine",
+        "ua": "вул. Хрещатик 1, 01001 Київ, Україна"
+    },
+    "hours": {
+        "title": {
+            "pl": "Godziny pracy:",
+            "en": "Opening hours:",
+            "ua": "Робочі години:"
+        },
+        "lines": [
+            {
+                "pl": "Pon. - Czw. 11:00 — 22:00",
+                "en": "Mon - Thu 11:00 - 22:00",
+                "ua": "Пн. - Чт. 11:00 — 22:00"
+            },
+            {
+                "pl": "Pt. - Nd. 11:00 — 23:00",
+                "en": "Fri - Sun 11:00 - 23:00",
+                "ua": "Пт. - Нд. 11:00 — 23:00"
+            }
+        ]
+    },
+    "socials": [
+        {
+            "type": "instagram",
+            "url": "https:\/\/www.instagram.com\/kalyna.restaurant\/"
+        },
+        {
+            "type": "facebook",
+            "url": "https:\/\/www.facebook.com\/kalyna.restaurant"
+        },
+        {
+            "type": "telegram",
+            "url": "https:\/\/t.me\/kalyna_restaurant"
+        }
+    ]
+}

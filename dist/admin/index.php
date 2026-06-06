@@ -31,13 +31,36 @@ if ($isLogged && file_exists(MENU_JSON_PATH)) {
     $decoded = json_decode($raw, true);
     if ($decoded) $menuData = $decoded;
 }
+
+// Читання поточних налаштувань сайту
+$settings = [
+    'name' => '', 'phone' => '', 'logo' => '', 'headerImage' => '', 'mapUrl' => '',
+    'address' => ['pl' => '', 'en' => '', 'ua' => ''],
+    'hours' => ['title' => ['pl' => '', 'en' => '', 'ua' => ''], 'lines' => []],
+    'socials' => [],
+];
+if (file_exists(SETTINGS_JSON_PATH)) {
+    $raw = file_get_contents(SETTINGS_JSON_PATH);
+    $decoded = json_decode($raw, true);
+    if ($decoded) $settings = array_merge($settings, $decoded);
+}
+
+// Назва закладу для заголовків адмінки (фолбек, якщо ще не задано)
+$siteName = $settings['name'] !== '' ? $settings['name'] : 'Адмінка';
+
+// Доступні соцмережі: значення → підпис
+$SOCIAL_TYPES = [
+    'instagram' => 'Instagram', 'facebook' => 'Facebook', 'tiktok' => 'TikTok',
+    'youtube' => 'YouTube', 'telegram' => 'Telegram', 'whatsapp' => 'WhatsApp',
+    'viber' => 'Viber', 'x' => 'X (Twitter)',
+];
 ?>
 <!DOCTYPE html>
 <html lang="uk">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sushi Smok — Admin</title>
+<title><?= htmlspecialchars($siteName) ?> — Адмінка</title>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: system-ui, sans-serif; background: #111; color: #eee; min-height: 100vh; }
@@ -141,7 +164,7 @@ textarea { resize: vertical; min-height: 72px; }
 <?php if (!$isLogged): ?>
 <div class="login-wrap">
   <div class="login-box">
-    <h1>🍣 Sushi Smok Admin</h1>
+    <h1><?= htmlspecialchars($siteName) ?> — Адмінка</h1>
     <?php if ($error): ?><div class="error"><?= htmlspecialchars($error) ?></div><?php endif; ?>
     <form method="post">
       <input type="hidden" name="action" value="login">
@@ -156,7 +179,7 @@ textarea { resize: vertical; min-height: 72px; }
 <?php else: ?>
 
 <div class="topbar">
-  <span class="topbar-title">🍣 Sushi Smok — Адмін меню</span>
+  <span class="topbar-title"><?= htmlspecialchars($siteName) ?> — Адмінка</span>
   <div style="display:flex;gap:10px;align-items:center">
     <a href="/" target="_blank" class="btn btn-ghost btn-sm">← Сайт</a>
     <form method="post" style="margin:0">
@@ -168,6 +191,116 @@ textarea { resize: vertical; min-height: 72px; }
 
 <div class="container">
 
+<!-- ───────────── Налаштування сайту ───────────── -->
+<div class="cat-block" id="settings-block">
+  <div class="cat-header" onclick="toggleCat(this)">
+    <span class="chevron">▶</span>
+    <span class="cat-header-title">⚙️ Налаштування сайту</span>
+  </div>
+  <div class="cat-body">
+
+    <div class="fields-section">
+      <div class="fields-section-title">Назва закладу</div>
+      <input type="text" id="set-name" value="<?= htmlspecialchars($settings['name'] ?? '') ?>">
+    </div>
+
+    <div class="fields-section">
+      <div class="fields-section-title">Телефон</div>
+      <input type="text" id="set-phone" value="<?= htmlspecialchars($settings['phone'] ?? '') ?>" placeholder="+48 100 200 300">
+    </div>
+
+    <div class="fields-section">
+      <div class="fields-section-title">Логотип</div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
+        <img class="set-logo-preview" src="<?= htmlspecialchars($settings['logo'] ?: '/images/site/logo.webp') ?>" style="width:48px;height:48px;border-radius:8px;object-fit:cover;background:#333" onerror="this.style.opacity=.3">
+        <input type="text" id="set-logo" value="<?= htmlspecialchars($settings['logo'] ?? '') ?>" placeholder="/images/site/logo.webp" style="flex:1" oninput="document.querySelector('.set-logo-preview').src=this.value">
+      </div>
+      <div class="img-upload-row">
+        <input type="file" accept="image/*" onchange="uploadSiteImage(this,'set-logo','.set-logo-preview')">
+        <span class="img-uploading" style="display:none">Завантаження...</span>
+      </div>
+    </div>
+
+    <div class="fields-section">
+      <div class="fields-section-title">Фонова картинка шапки</div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
+        <img class="set-header-preview" src="<?= htmlspecialchars($settings['headerImage'] ?: '/images/site/header.webp') ?>" style="width:96px;height:48px;border-radius:8px;object-fit:cover;background:#333" onerror="this.style.opacity=.3">
+        <input type="text" id="set-header" value="<?= htmlspecialchars($settings['headerImage'] ?? '') ?>" placeholder="/images/site/header.webp" style="flex:1" oninput="document.querySelector('.set-header-preview').src=this.value">
+      </div>
+      <div class="img-upload-row">
+        <input type="file" accept="image/*" onchange="uploadSiteImage(this,'set-header','.set-header-preview')">
+        <span class="img-uploading" style="display:none">Завантаження...</span>
+      </div>
+    </div>
+
+    <div class="fields-section">
+      <div class="fields-section-title">Адреса</div>
+      <div class="lang-row">
+        <div><div class="lang-label">🇵🇱 PL</div><input type="text" id="set-address-pl" value="<?= htmlspecialchars($settings['address']['pl'] ?? '') ?>"></div>
+        <div><div class="lang-label">🇬🇧 EN</div><input type="text" id="set-address-en" value="<?= htmlspecialchars($settings['address']['en'] ?? '') ?>"></div>
+        <div><div class="lang-label">🇺🇦 UA</div><input type="text" id="set-address-ua" value="<?= htmlspecialchars($settings['address']['ua'] ?? '') ?>"></div>
+      </div>
+    </div>
+
+    <div class="fields-section">
+      <div class="fields-section-title">Посилання на карту (Google Maps)</div>
+      <input type="text" id="set-mapurl" value="<?= htmlspecialchars($settings['mapUrl'] ?? '') ?>" placeholder="https://maps.google.com/?q=...">
+    </div>
+
+    <div class="fields-section">
+      <div class="fields-section-title">Робочі години — заголовок</div>
+      <div class="lang-row">
+        <div><div class="lang-label">🇵🇱 PL</div><input type="text" id="set-hours-title-pl" value="<?= htmlspecialchars($settings['hours']['title']['pl'] ?? '') ?>"></div>
+        <div><div class="lang-label">🇬🇧 EN</div><input type="text" id="set-hours-title-en" value="<?= htmlspecialchars($settings['hours']['title']['en'] ?? '') ?>"></div>
+        <div><div class="lang-label">🇺🇦 UA</div><input type="text" id="set-hours-title-ua" value="<?= htmlspecialchars($settings['hours']['title']['ua'] ?? '') ?>"></div>
+      </div>
+    </div>
+
+    <div class="fields-section">
+      <div class="fields-section-title">Робочі години — рядки</div>
+      <div id="hours-lines">
+        <?php foreach (($settings['hours']['lines'] ?? []) as $line): ?>
+        <div class="hours-line" style="margin-bottom:10px">
+          <div style="display:flex;gap:8px;align-items:flex-end">
+            <div class="lang-row" style="flex:1;margin-bottom:0">
+              <div><div class="lang-label">🇵🇱 PL</div><input type="text" class="hl-pl" value="<?= htmlspecialchars($line['pl'] ?? '') ?>"></div>
+              <div><div class="lang-label">🇬🇧 EN</div><input type="text" class="hl-en" value="<?= htmlspecialchars($line['en'] ?? '') ?>"></div>
+              <div><div class="lang-label">🇺🇦 UA</div><input type="text" class="hl-ua" value="<?= htmlspecialchars($line['ua'] ?? '') ?>"></div>
+            </div>
+            <button class="btn btn-danger btn-sm" onclick="this.closest('.hours-line').remove()">✕</button>
+          </div>
+        </div>
+        <?php endforeach; ?>
+      </div>
+      <button class="btn btn-ghost btn-sm add-item-btn" onclick="addHoursLine()">+ Додати рядок</button>
+    </div>
+
+    <div class="fields-section">
+      <div class="fields-section-title">Соцмережі</div>
+      <div id="socials-list">
+        <?php foreach (($settings['socials'] ?? []) as $s): ?>
+        <div class="social-row" style="display:flex;gap:8px;margin-bottom:8px;align-items:center">
+          <select class="social-type" style="max-width:160px">
+            <?php foreach ($SOCIAL_TYPES as $val => $label): ?>
+            <option value="<?= $val ?>" <?= ($s['type'] ?? '') === $val ? 'selected' : '' ?>><?= $label ?></option>
+            <?php endforeach; ?>
+          </select>
+          <input type="text" class="social-url" value="<?= htmlspecialchars($s['url'] ?? '') ?>" placeholder="https://..." style="flex:1">
+          <button class="btn btn-danger btn-sm" onclick="this.closest('.social-row').remove()">✕</button>
+        </div>
+        <?php endforeach; ?>
+      </div>
+      <button class="btn btn-ghost btn-sm add-item-btn" onclick="addSocial()">+ Додати соцмережу</button>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:12px;margin-top:20px">
+      <button class="btn btn-gold" onclick="saveSettings()">💾 Зберегти налаштування</button>
+      <span class="save-status" id="settings-status"></span>
+    </div>
+
+  </div>
+</div>
+
 <button class="btn btn-gold add-cat-btn" onclick="addCategory()">+ Додати категорію</button>
 
 <div id="categories-wrap">
@@ -176,7 +309,7 @@ textarea { resize: vertical; min-height: 72px; }
   <div class="cat-header" onclick="toggleCat(this)">
     <span class="drag-handle cat-drag-handle" onclick="event.stopPropagation()" title="Перетягнути категорію">⠿</span>
     <span class="chevron">▶</span>
-    <span class="cat-header-title"><?= htmlspecialchars($cat['title']['pl'] ?? '') ?></span>
+    <span class="cat-header-title"><?= htmlspecialchars($cat['title']['ua'] ?? '') ?></span>
     <span class="cat-header-count"><?= count($cat['items']) ?> позицій</span>
     <button class="btn btn-danger btn-sm" onclick="event.stopPropagation();removeCat(this)">✕</button>
   </div>
@@ -196,7 +329,7 @@ textarea { resize: vertical; min-height: 72px; }
       <div class="item-header">
         <span class="drag-handle item-drag-handle" title="Перетягнути позицію">⠿</span>
         <img class="item-img-preview" src="<?= htmlspecialchars($item['image'] ?? '/images/menu/empty.svg') ?>" alt="" onerror="this.src='/images/menu/empty.svg'">
-        <span class="item-name-preview"><?= htmlspecialchars($item['name']['pl'] ?? '') ?></span>
+        <span class="item-name-preview"><?= htmlspecialchars($item['name']['ua'] ?? '') ?></span>
         <span class="item-price-badge"><?= (int)($item['price'] ?? 0) ?> zł</span>
         <button class="btn btn-danger btn-sm" onclick="removeItem(this)">✕</button>
       </div>
@@ -288,6 +421,129 @@ textarea { resize: vertical; min-height: 72px; }
 
 <script>
 const CSRF = <?= json_encode($csrfToken) ?>;
+const SOCIAL_TYPES = <?= json_encode($SOCIAL_TYPES) ?>;
+
+// ───────────── Налаштування сайту ─────────────
+
+function val(id) { return document.getElementById(id)?.value || ''; }
+
+function escapeHtml(s) {
+  return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function socialOptions(selected) {
+  return Object.entries(SOCIAL_TYPES)
+    .map(([v, l]) => `<option value="${v}" ${v === selected ? 'selected' : ''}>${l}</option>`)
+    .join('');
+}
+
+function addSocial(type = 'instagram', url = '') {
+  const div = document.createElement('div');
+  div.className = 'social-row';
+  div.style.cssText = 'display:flex;gap:8px;margin-bottom:8px;align-items:center';
+  div.innerHTML = `
+    <select class="social-type" style="max-width:160px">${socialOptions(type)}</select>
+    <input type="text" class="social-url" value="${escapeHtml(url)}" placeholder="https://..." style="flex:1">
+    <button class="btn btn-danger btn-sm" onclick="this.closest('.social-row').remove()">✕</button>`;
+  document.getElementById('socials-list').appendChild(div);
+}
+
+function addHoursLine() {
+  const div = document.createElement('div');
+  div.className = 'hours-line';
+  div.style.marginBottom = '10px';
+  div.innerHTML = `
+    <div style="display:flex;gap:8px;align-items:flex-end">
+      <div class="lang-row" style="flex:1;margin-bottom:0">
+        <div><div class="lang-label">🇵🇱 PL</div><input type="text" class="hl-pl"></div>
+        <div><div class="lang-label">🇬🇧 EN</div><input type="text" class="hl-en"></div>
+        <div><div class="lang-label">🇺🇦 UA</div><input type="text" class="hl-ua"></div>
+      </div>
+      <button class="btn btn-danger btn-sm" onclick="this.closest('.hours-line').remove()">✕</button>
+    </div>`;
+  document.getElementById('hours-lines').appendChild(div);
+}
+
+async function uploadSiteImage(input, fieldId, previewSel) {
+  const statusEl = input.nextElementSibling;
+  statusEl.style.display = 'inline';
+  input.disabled = true;
+  const fd = new FormData();
+  fd.append('image', input.files[0]);
+  fd.append('csrf', CSRF);
+  fd.append('target', 'site');
+  try {
+    const res = await fetch('/admin/upload.php', { method: 'POST', body: fd });
+    const data = await res.json();
+    if (data.success) {
+      document.getElementById(fieldId).value = data.url;
+      const p = document.querySelector(previewSel);
+      if (p) { p.src = data.url; p.style.opacity = 1; }
+    } else {
+      alert('Помилка завантаження: ' + (data.error || 'невідома'));
+    }
+  } catch {
+    alert('Помилка мережі при завантаженні');
+  }
+  statusEl.style.display = 'none';
+  input.disabled = false;
+  input.value = '';
+}
+
+async function saveSettings() {
+  const statusEl = document.getElementById('settings-status');
+  statusEl.textContent = 'Збереження...';
+  statusEl.className = 'save-status';
+
+  const lines = [...document.querySelectorAll('#hours-lines .hours-line')].map(el => ({
+    pl: el.querySelector('.hl-pl')?.value || '',
+    en: el.querySelector('.hl-en')?.value || '',
+    ua: el.querySelector('.hl-ua')?.value || '',
+  }));
+
+  const socials = [...document.querySelectorAll('#socials-list .social-row')].map(el => ({
+    type: el.querySelector('.social-type')?.value || '',
+    url: (el.querySelector('.social-url')?.value || '').trim(),
+  })).filter(s => s.url);
+
+  const settings = {
+    name: val('set-name'),
+    phone: val('set-phone'),
+    logo: val('set-logo'),
+    headerImage: val('set-header'),
+    mapUrl: val('set-mapurl'),
+    address: { pl: val('set-address-pl'), en: val('set-address-en'), ua: val('set-address-ua') },
+    hours: {
+      title: { pl: val('set-hours-title-pl'), en: val('set-hours-title-en'), ua: val('set-hours-title-ua') },
+      lines,
+    },
+    socials,
+  };
+
+  try {
+    const res = await fetch('/admin/settings.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ settings, csrf: CSRF }),
+    });
+    const data = await res.json();
+    if (data.success) {
+      statusEl.textContent = '✓ Збережено!';
+      statusEl.className = 'save-status ok';
+    } else {
+      statusEl.textContent = '✗ Помилка: ' + (data.error || 'невідома');
+      statusEl.className = 'save-status err';
+    }
+  } catch {
+    statusEl.textContent = '✗ Помилка мережі';
+    statusEl.className = 'save-status err';
+  }
+  setTimeout(() => { statusEl.textContent = ''; statusEl.className = 'save-status'; }, 4000);
+}
+
+// ──────────────────────────────────────────────
+
 let nextId = <?php
   $allItems = [];
   foreach ($menuData['categories'] as $c) {
@@ -303,13 +559,13 @@ function toggleCat(header) {
   const isOpen = body.classList.toggle('open');
   chev.classList.toggle('open', isOpen);
   const titleEl = header.querySelector('.cat-header-title');
-  const pl = header.closest('.cat-block').querySelector('.cat-title-pl');
-  if (pl) titleEl.textContent = pl.value || '(без назви)';
+  const ua = header.closest('.cat-block').querySelector('.cat-title-ua');
+  if (ua) titleEl.textContent = ua.value || '(без назви)';
 }
 
 function updateCatTitle(input, lang) {
   const block = input.closest('.cat-block');
-  if (lang === 'pl') {
+  if (lang === 'ua') {
     block.querySelector('.cat-header-title').textContent = input.value || '(без назви)';
   }
 }
@@ -470,7 +726,7 @@ function initItemsSortable(wrap) {
 }
 
 function updateAllCounts() {
-  document.querySelectorAll('.cat-block').forEach(cat => {
+  document.querySelectorAll('#categories-wrap .cat-block').forEach(cat => {
     cat.querySelector('.cat-header-count').textContent =
       cat.querySelectorAll('.item-block').length + ' позицій';
   });
@@ -505,7 +761,7 @@ async function uploadImage(input) {
   fd.append('csrf', CSRF);
 
   try {
-    const res = await fetch('upload.php', { method: 'POST', body: fd });
+    const res = await fetch('/admin/upload.php', { method: 'POST', body: fd });
     const data = await res.json();
     if (data.success) {
       block.querySelector('.item-image-url').value = data.url;
@@ -528,8 +784,8 @@ async function saveAll() {
   statusEl.className = 'save-status';
 
   const categories = [];
-  document.querySelectorAll('.cat-block').forEach(catEl => {
-    const id = (catEl.querySelector('.cat-title-pl')?.value || '').toLowerCase().replace(/\s+/g, '_') || 'cat_' + Date.now();
+  document.querySelectorAll('#categories-wrap .cat-block').forEach(catEl => {
+    const id = (catEl.querySelector('.cat-title-ua')?.value || '').toLowerCase().replace(/\s+/g, '_') || 'cat_' + Date.now();
     const cat = {
       id,
       title: {
@@ -578,7 +834,7 @@ async function saveAll() {
   });
 
   try {
-    const res = await fetch('api.php', {
+    const res = await fetch('/admin/api.php', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ categories, csrf: CSRF }),

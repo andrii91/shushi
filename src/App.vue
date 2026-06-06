@@ -1,8 +1,10 @@
 <template>
+  <Loader v-if="initialLoading" />
+
   <header class="header">
     <div class="container">
-      <img src="./assets/header.webp" alt="header" />
-      <img src="./assets/logo.webp" class="logo" alt="header" />
+      <img :src="headerSrc" alt="header" />
+      <img :src="logoSrc" class="logo" :alt="settings?.name" />
       <I18nSelector 
         @change="updateLocale"
       />
@@ -12,15 +14,15 @@
     <div class="container">
       <div class="main-place">
         <div class="main-place-row">
-          <h1 class="main-place-title">Sushi Smok</h1>
-          <a href="tel:+48880503760" class="main-place-phone">
-            +48 880 503 760</a
+          <h1 class="main-place-title">{{ settings?.name }}</h1>
+          <a :href="`tel:${phoneHref}`" class="main-place-phone">
+            {{ settings?.phone }}</a
           >
         </div>
                
         <a
           class="main-place-address"
-          href="https://maps.app.goo.gl/QGLZegSUG5hXpC527"
+          :href="settings?.mapUrl"
           rel="nofollow"
           target="_blank"
         >
@@ -38,39 +40,20 @@
             </g>
           </svg>
           <span>
-            {{ t("common.address") }}
+            {{ addressText }}
           </span>
         </a>
 
         <div class="main-social-row">
           <a
+            v-for="social in activeSocials"
+            :key="social.type"
             class="main-place-social"
-            href="https://www.instagram.com/sushismok_s/"
+            :href="social.url"
             rel="nofollow"
             target="_blank"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="29"
-              height="29"
-              fill="currentColor"
-              viewBox="0 0 16 16"
-            >
-              <path
-                d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"
-              />
-            </svg>
-          </a>
-
-          <a
-            class="main-place-social"
-            href="https://www.facebook.com/profile.php?id=61574757300608"
-            rel="nofollow"
-            target="_blank"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0 0 50 50" fill="currentColor" >
-                <path d="M25,3C12.85,3,3,12.85,3,25c0,11.03,8.125,20.137,18.712,21.728V30.831h-5.443v-5.783h5.443v-3.848 c0-6.371,3.104-9.168,8.399-9.168c2.536,0,3.877,0.188,4.512,0.274v5.048h-3.612c-2.248,0-3.033,2.131-3.033,4.533v3.161h6.588 l-0.894,5.783h-5.694v15.944C38.716,45.318,47,36.137,47,25C47,12.85,37.15,3,25,3z"></path>
-            </svg>
+            <SocialIcon :type="social.type" />
           </a>
         </div>
        
@@ -83,63 +66,44 @@
             </a>
           </li>
         </ul>
-        <div
-          v-if="!loading" 
-          class="cards-item"
-          v-for="(items, index) in menu"
-          :key="items.category"
-          :id="items.category"
-        >
-          <h4 class="cards-item-title">
-            {{ items.category }}
-          </h4>
+        <Skeleton class="menu-skeleton" v-if="loading" />
 
-          <CardItemList :items="menu[index].items" @update-favorite="updateFavorite"/>
-        </div>
+        <template v-else>
+          <div
+            class="cards-item"
+            v-for="(items, index) in menu"
+            :key="items.category"
+            :id="items.category"
+          >
+            <h4 class="cards-item-title">
+              {{ items.category }}
+            </h4>
 
-        <Skeleton class="menu-skeleton" v-else />
+            <CardItemList :items="menu[index].items" @update-favorite="updateFavorite"/>
+          </div>
+        </template>
       </div>
     </div>
   </main>
   <footer class="footer">
     <div class="main-place-address main-place-time">
-      <div class="main-place-time-title">{{ t("common.hours.title")}}</div>
+      <div class="main-place-time-title">{{ hoursTitle }}</div>
 
-      <div>{{ t("common.hours.time1")}}</div>
-      <div>{{ t("common.hours.time2")}}</div>
+      <div v-for="(line, i) in hoursLines" :key="i">{{ line }}</div>
     </div>
     <div class="main-social-row">
       <a
+        v-for="social in activeSocials"
+        :key="social.type"
         class="main-place-social"
-        href="https://www.instagram.com/sushismok_s/"
+        :href="social.url"
         rel="nofollow"
         target="_blank"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="29"
-          height="29"
-          fill="currentColor"
-          viewBox="0 0 16 16"
-        >
-          <path
-            d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"
-          />
-        </svg>
-      </a>
-
-      <a
-        class="main-place-social"
-        href="https://www.facebook.com/profile.php?id=61574757300608"
-        rel="nofollow"
-        target="_blank"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0 0 50 50" fill="currentColor" >
-            <path d="M25,3C12.85,3,3,12.85,3,25c0,11.03,8.125,20.137,18.712,21.728V30.831h-5.443v-5.783h5.443v-3.848 c0-6.371,3.104-9.168,8.399-9.168c2.536,0,3.877,0.188,4.512,0.274v5.048h-3.612c-2.248,0-3.033,2.131-3.033,4.533v3.161h6.588 l-0.894,5.783h-5.694v15.944C38.716,45.318,47,36.137,47,25C47,12.85,37.15,3,25,3z"></path>
-        </svg>
+        <SocialIcon :type="social.type" />
       </a>
     </div>
-    <div> &#169; SushiSmok 2026</div>
+    <div> &#169; {{ settings?.name }} {{ year }}</div>
   </footer>
 
   <div v-if="isShowFavorite" class="open-favorite-button">
@@ -165,36 +129,63 @@ import type { MenuItem, MenuCategoryRaw } from "./types/MenuItem";
 import { transformMenu } from "./utils/data";
 import Modal from "./components/Modal.vue";
 import Skeleton from "./components/Skeleton.vue";
+import Loader from "./components/Loader.vue";
 import { useI18n } from "vue-i18n";
 import I18nSelector from "./components/I18nSelector.vue";
+import SocialIcon from "./components/SocialIcon.vue";
+import type { SiteSettings } from "./types/SiteSettings";
+import headerFallback from "./assets/header.webp";
+import logoFallback from "./assets/logo.webp";
 import { useHead } from '@vueuse/head'
 
-useHead({
-  title: 'Sushi Smok - Menu',
-  meta: [
-    { name: 'Title', content: 'Sushi Smok - Menu' },
-    {
-      name: 'description',
-      content:
-        'Sushi Smok - Menu | Sushi, rolki i inne dania kuchni japońskiej! Dostawa i odbiór osobisty! | Tel: +48 880 503 760 | Adres: Pomarańczowa 7, 70-781 Szczecin, Polska'
-    },
-    { property: 'og:type', content: 'article' },
-    {
-      property: 'og:description',
-      content:
-        'Sushi Smok - Menu | Sushi, rolki i inne dania kuchni japońskiej! Dostawa i odbiór osobisty! | Tel: +48 880 503 760 | Adres: Pomarańczowa 7, 70-781 Szczecin, Polska'
-    },
-    { property: 'og:url', content: 'https://sushismok.my-style.in/' },
-    { property: 'og:sitename', content: 'Sushi Smok - Menu' },
-    { property: 'og:title', content: 'Sushi Smok - Menu' },
-    { property: 'og:image', content: 'https://sushismok.my-style.in/images/og.jpeg' }
-  ]
-})
-
 const { t, locale } = useI18n();
+
+const settings = ref<SiteSettings | null>(null);
+
+const lang = computed(() =>
+  (["pl", "en", "ua"].includes(locale.value) ? locale.value : "pl") as "pl" | "en" | "ua"
+);
+
+const headerSrc = computed(() => settings.value?.headerImage || headerFallback);
+const logoSrc = computed(() => settings.value?.logo || logoFallback);
+const phoneHref = computed(() => (settings.value?.phone ?? "").replace(/[^\d+]/g, ""));
+const addressText = computed(() => settings.value?.address?.[lang.value] || settings.value?.address?.pl || "");
+const hoursTitle = computed(() => settings.value?.hours?.title?.[lang.value] || settings.value?.hours?.title?.pl || "");
+const hoursLines = computed(() =>
+  (settings.value?.hours?.lines ?? [])
+    .map((l) => l[lang.value] || l.pl)
+    .filter(Boolean)
+);
+const activeSocials = computed(() =>
+  (settings.value?.socials ?? []).filter((s) => s.type && s.url?.trim())
+);
+const year = new Date().getFullYear();
+
+useHead(() => {
+  const name = settings.value?.name ?? "";
+  const title = `${name} - Menu`;
+  const desc = `${title} | Tel: ${settings.value?.phone ?? ""} | ${settings.value?.address?.ua ?? ""}`;
+  return {
+    title,
+    meta: [
+      { name: "Title", content: title },
+      { name: "description", content: desc },
+      { property: "og:type", content: "article" },
+      { property: "og:description", content: desc },
+      { property: "og:url", content: "https://depozhrat.example.com/" },
+      { property: "og:sitename", content: title },
+      { property: "og:title", content: title },
+      { property: "og:image", content: "https://depozhrat.example.com/images/og.jpeg" },
+    ],
+  };
+});
+
 const favoriteData = ref<MenuItem[]>([]);
 const openModal = ref(false);
-const loading = ref(true);
+// Спінер на перше завантаження сторінки (поки тягнемо settings/menu).
+const initialLoading = ref(true);
+// Skeleton під час зміни мови / перезавантаження контенту.
+const loading = ref(false);
 const menuRaw = ref<MenuCategoryRaw[]>([]);
 
 const menu = computed(() => transformMenu(menuRaw.value, locale.value));
@@ -234,13 +225,19 @@ const prices = computed(() =>
 onMounted(async () => {
   updateFavorite();
   try {
+    const res = await fetch("/data/settings.json");
+    settings.value = await res.json();
+  } catch {
+    settings.value = null;
+  }
+  try {
     const res = await fetch("/data/menu.json");
     const data = await res.json();
     menuRaw.value = data.categories ?? [];
   } catch {
     menuRaw.value = [];
   }
-  loading.value = false;
+  initialLoading.value = false;
 });
 
 const updateLocale = () => {

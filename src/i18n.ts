@@ -14,14 +14,14 @@ function getLocale(): string {
   if (savedLocale) {
     return savedLocale;
   }
-  return "pl"; // Default locale
+  return "ua"; // Default locale
 }
 
 export default createI18n({
   legacy: false,
   globalInjection: true,
   locale: getLocale(),
-  fallbackLocale: "pl",
+  fallbackLocale: "ua",
   messages,
 });
 

@@ -55,12 +55,20 @@ if (!in_array($mimeType, $allowedMimes, true)) {
     exit;
 }
 
+// Куди зберігати: 'menu' (за замовчуванням) або 'site' (лого / фон шапки)
+$target = $_POST['target'] ?? 'menu';
+$targets = UPLOAD_TARGETS;
+if (!isset($targets[$target])) {
+    $target = 'menu';
+}
+[$uploadDir, $uploadUrl] = $targets[$target];
+
 // Унікальне ім'я файлу
 $newName = uniqid('img_', true) . '.' . $ext;
-$destination = UPLOAD_DIR . $newName;
+$destination = $uploadDir . $newName;
 
-if (!is_dir(UPLOAD_DIR)) {
-    mkdir(UPLOAD_DIR, 0755, true);
+if (!is_dir($uploadDir)) {
+    mkdir($uploadDir, 0755, true);
 }
 
 if (!move_uploaded_file($file['tmp_name'], $destination)) {
@@ -71,6 +79,6 @@ if (!move_uploaded_file($file['tmp_name'], $destination)) {
 
 echo json_encode([
     'success' => true,
-    'url' => UPLOAD_URL . $newName,
+    'url' => $uploadUrl . $newName,
     'filename' => $newName,
 ]);

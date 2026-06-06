@@ -1,0 +1,364 @@
+{
+  "categories": [
+    {
+      "id": "zakusky",
+      "title": { "pl": "Przystawki", "en": "Appetizers", "ua": "Закуски" },
+      "items": [
+        {
+          "id": 1, "price": 95, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Słonina z czosnkiem", "en": "Salo with garlic", "ua": "Сало з часником" },
+          "description": { "pl": "Domowa solona słonina z czosnkiem, podawana z razowym chlebem i musztardą.", "en": "Homemade salted pork fat with garlic, served with rye bread and mustard.", "ua": "Домашнє солоне сало з часником, подається з житнім хлібом та гірчицею." },
+          "count": { "pl": "150 g", "en": "150 g", "ua": "150 г" }
+        },
+        {
+          "id": 2, "price": 145, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Śledź po domowemu", "en": "Homestyle herring", "ua": "Оселедець по-домашньому" },
+          "description": { "pl": "Soczysty śledź z gotowanym ziemniakiem i marynowaną cebulą, skropiony olejem słonecznikowym.", "en": "Tender herring with boiled potatoes and pickled onion, drizzled with sunflower oil.", "ua": "Ніжний оселедець з вареною картоплею та маринованою цибулею, политий соняшниковою олією." },
+          "count": { "pl": "200 g", "en": "200 g", "ua": "200 г" }
+        },
+        {
+          "id": 3, "price": 220, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Półmisek mięsny", "en": "Meat platter", "ua": "М'ясна нарізка" },
+          "description": { "pl": "Domowa pieczeń, kiełbasa swojska i wędzona słonina podane z ogórkiem kiszonym.", "en": "Homemade roast pork, country sausage and smoked salo served with a pickled cucumber.", "ua": "Домашня буженина, селянська ковбаса та копчене сало з солоним огірком." },
+          "count": { "pl": "250 g", "en": "250 g", "ua": "250 г" }
+        },
+        {
+          "id": 4, "price": 110, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Domowe kiszonki", "en": "Homemade pickles", "ua": "Домашні соління" },
+          "description": { "pl": "Kiszone ogórki, pomidory i kapusta przygotowane według tradycyjnej receptury.", "en": "Pickled cucumbers, tomatoes and sauerkraut made to a traditional recipe.", "ua": "Квашені огірки, помідори та капуста, приготовані за традиційним рецептом." },
+          "count": { "pl": "250 g", "en": "250 g", "ua": "250 г" }
+        },
+        {
+          "id": 5, "price": 120, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Forszmak ze śledzia", "en": "Herring forshmak", "ua": "Форшмак з оселедця" },
+          "description": { "pl": "Delikatna pasta ze śledzia z jabłkiem i masłem, podana z grzankami.", "en": "Delicate herring spread with apple and butter, served with toast.", "ua": "Ніжна паста з оселедця з яблуком та маслом, подається з грінками." },
+          "count": { "pl": "150 g", "en": "150 g", "ua": "150 г" }
+        }
+      ]
+    },
+    {
+      "id": "supy",
+      "title": { "pl": "Zupy", "en": "Soups", "ua": "Супи" },
+      "items": [
+        {
+          "id": 6, "price": 150, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Barszcz ukraiński", "en": "Ukrainian borscht", "ua": "Борщ український" },
+          "description": { "pl": "Tradycyjny czerwony barszcz na wywarze mięsnym, podany z pampuszkami i słoniną.", "en": "Traditional red borscht on a meat broth, served with garlic buns and salo.", "ua": "Традиційний червоний борщ на м'ясному бульйоні, подається з пампушками та салом." },
+          "count": { "pl": "350 g", "en": "350 g", "ua": "350 г" }
+        },
+        {
+          "id": 7, "price": 165, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Solanka mięsna", "en": "Meat solyanka", "ua": "Солянка м'ясна" },
+          "description": { "pl": "Gęsta, pikantna zupa z kilku rodzajów mięsa, ogórkiem kiszonym i oliwkami, podana z cytryną.", "en": "Rich, tangy soup with several kinds of meat, pickles and olives, served with lemon.", "ua": "Густий насичений суп з кількох видів м'яса, солоними огірками та оливками, подається з лимоном." },
+          "count": { "pl": "350 g", "en": "350 g", "ua": "350 г" }
+        },
+        {
+          "id": 8, "price": 110, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Rosół z domowym makaronem", "en": "Chicken broth with homemade noodles", "ua": "Курячий бульйон з домашньою локшиною" },
+          "description": { "pl": "Klarowny rosół z kury z domowym makaronem, marchewką i świeżą zieleniną.", "en": "Clear chicken broth with homemade noodles, carrot and fresh herbs.", "ua": "Прозорий курячий бульйон з домашньою локшиною, морквою та свіжою зеленню." },
+          "count": { "pl": "300 g", "en": "300 g", "ua": "300 г" }
+        },
+        {
+          "id": 9, "price": 140, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Zupa grzybowa", "en": "Mushroom soup", "ua": "Грибна юшка" },
+          "description": { "pl": "Aromatyczna zupa z borowików z ziemniakami, podana ze śmietaną.", "en": "Aromatic porcini mushroom soup with potatoes, served with sour cream.", "ua": "Ароматна юшка з білих грибів з картоплею, подається зі сметаною." },
+          "count": { "pl": "300 g", "en": "300 g", "ua": "300 г" }
+        }
+      ]
+    },
+    {
+      "id": "varenyky",
+      "title": { "pl": "Pierogi", "en": "Varenyky", "ua": "Вареники" },
+      "items": [
+        {
+          "id": 10, "price": 120, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Z ziemniakami", "en": "With potato", "ua": "З картоплею" },
+          "description": { "pl": "Domowe pierogi z puszystym nadzieniem ziemniaczanym, podane z podsmażaną cebulką i śmietaną.", "en": "Homemade dumplings with fluffy potato filling, served with fried onion and sour cream.", "ua": "Домашні вареники з пухкою картопляною начинкою, подаються зі смаженою цибулею та сметаною." },
+          "count": { "pl": "8 szt.", "en": "8 pcs.", "ua": "8 шт." }
+        },
+        {
+          "id": 11, "price": 135, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Z ziemniakami i grzybami", "en": "With potato and mushrooms", "ua": "З картоплею та грибами" },
+          "description": { "pl": "Pierogi z ziemniakami i smażonymi grzybami leśnymi, podane ze śmietaną.", "en": "Dumplings with potato and fried forest mushrooms, served with sour cream.", "ua": "Вареники з картоплею та смаженими лісовими грибами, подаються зі сметаною." },
+          "count": { "pl": "8 szt.", "en": "8 pcs.", "ua": "8 шт." }
+        },
+        {
+          "id": 12, "price": 115, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Z kapustą", "en": "With cabbage", "ua": "З капустою" },
+          "description": { "pl": "Pierogi z duszoną kapustą, podane z podsmażaną cebulką.", "en": "Dumplings with braised cabbage, served with fried onion.", "ua": "Вареники з тушкованою капустою, подаються зі смаженою цибулею." },
+          "count": { "pl": "8 szt.", "en": "8 pcs.", "ua": "8 шт." }
+        },
+        {
+          "id": 13, "price": 125, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Z twarogiem", "en": "With cottage cheese", "ua": "З домашнім сиром" },
+          "description": { "pl": "Pierogi z domowym twarogiem, podane ze śmietaną i cukrem.", "en": "Dumplings with homemade cottage cheese, served with sour cream and sugar.", "ua": "Вареники з домашнім сиром, подаються зі сметаною та цукром." },
+          "count": { "pl": "8 szt.", "en": "8 pcs.", "ua": "8 шт." }
+        },
+        {
+          "id": 14, "price": 130, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Z wiśniami", "en": "With cherries", "ua": "З вишнею" },
+          "description": { "pl": "Słodkie pierogi z soczystą wiśnią, podane ze śmietaną i cukrem.", "en": "Sweet dumplings with juicy cherries, served with sour cream and sugar.", "ua": "Солодкі вареники із соковитою вишнею, подаються зі сметаною та цукром." },
+          "count": { "pl": "8 szt.", "en": "8 pcs.", "ua": "8 шт." }
+        },
+        {
+          "id": 15, "price": 145, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Z mięsem", "en": "With meat", "ua": "З м'ясом" },
+          "description": { "pl": "Pierogi z soczystym nadzieniem mięsnym, podane z podsmażaną cebulką.", "en": "Dumplings with juicy meat filling, served with fried onion.", "ua": "Вареники із соковитою м'ясною начинкою, подаються зі смаженою цибулею." },
+          "count": { "pl": "8 szt.", "en": "8 pcs.", "ua": "8 шт." }
+        }
+      ]
+    },
+    {
+      "id": "holubtsi",
+      "title": { "pl": "Gołąbki", "en": "Cabbage rolls", "ua": "Голубці" },
+      "items": [
+        {
+          "id": 16, "price": 160, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Gołąbki z mięsem", "en": "Cabbage rolls with meat", "ua": "Голубці з м'ясом" },
+          "description": { "pl": "Liście kapusty nadziewane mięsem i ryżem, duszone w sosie pomidorowym, podane ze śmietaną.", "en": "Cabbage leaves stuffed with meat and rice, braised in tomato sauce and served with sour cream.", "ua": "Капустяні листки з начинкою з м'яса та рису, тушковані в томатному соусі, подаються зі сметаною." },
+          "count": { "pl": "2 szt.", "en": "2 pcs.", "ua": "2 шт." }
+        },
+        {
+          "id": 17, "price": 140, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Gołąbki postne", "en": "Lenten cabbage rolls", "ua": "Голубці пісні" },
+          "description": { "pl": "Liście kapusty nadziewane kaszą gryczaną i grzybami, duszone w sosie warzywnym.", "en": "Cabbage leaves stuffed with buckwheat and mushrooms, braised in vegetable sauce.", "ua": "Капустяні листки з начинкою з гречки та грибів, тушковані в овочевому соусі." },
+          "count": { "pl": "2 szt.", "en": "2 pcs.", "ua": "2 шт." }
+        }
+      ]
+    },
+    {
+      "id": "deruny",
+      "title": { "pl": "Placki ziemniaczane", "en": "Potato pancakes", "ua": "Деруни" },
+      "items": [
+        {
+          "id": 18, "price": 120, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Placki ze śmietaną", "en": "Pancakes with sour cream", "ua": "Деруни зі сметаною" },
+          "description": { "pl": "Chrupiące placki ziemniaczane smażone na złoto, podane z gęstą śmietaną.", "en": "Crispy potato pancakes fried golden, served with thick sour cream.", "ua": "Хрусткі картопляні деруни, смажені до золотистого кольору, подаються з густою сметаною." },
+          "count": { "pl": "4 szt.", "en": "4 pcs.", "ua": "4 шт." }
+        },
+        {
+          "id": 19, "price": 165, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Placki po wiejsku z mięsem", "en": "Country pancakes with meat", "ua": "Деруни по-селянськи з м'ясом" },
+          "description": { "pl": "Placki ziemniaczane z nadzieniem mięsnym, zapiekane w sosie śmietanowym w glinianym garnku.", "en": "Potato pancakes with meat filling, baked in a sour cream sauce in a clay pot.", "ua": "Картопляні деруни з м'ясною начинкою, запечені у сметанному соусі в горщику." },
+          "count": { "pl": "3 szt.", "en": "3 pcs.", "ua": "3 шт." }
+        }
+      ]
+    },
+    {
+      "id": "haryachi",
+      "title": { "pl": "Dania główne", "en": "Main dishes", "ua": "Гарячі страви" },
+      "items": [
+        {
+          "id": 20, "price": 220, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Kotlet po kijowsku", "en": "Chicken Kyiv", "ua": "Котлета по-київськи" },
+          "description": { "pl": "Soczysty filet z kurczaka z masłem ziołowym w chrupiącej panierce, podany z puree ziemniaczanym.", "en": "Juicy chicken fillet with herb butter in a crispy crust, served with mashed potatoes.", "ua": "Соковите куряче філе з вершковим маслом та зеленню у хрусткій паніровці, подається з картопляним пюре." },
+          "count": { "pl": "300 g", "en": "300 g", "ua": "300 г" }
+        },
+        {
+          "id": 21, "price": 195, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Pieczeń po domowemu", "en": "Homestyle roast in a pot", "ua": "Печеня по-домашньому в горщику" },
+          "description": { "pl": "Wieprzowina duszona z ziemniakami, grzybami i warzywami, zapiekana w glinianym garnku.", "en": "Pork stewed with potatoes, mushrooms and vegetables, baked in a clay pot.", "ua": "Свинина, тушкована з картоплею, грибами та овочами, запечена в глиняному горщику." },
+          "count": { "pl": "350 g", "en": "350 g", "ua": "350 г" }
+        },
+        {
+          "id": 22, "price": 245, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Żeberka w sosie miodowo-musztardowym", "en": "Ribs in honey-mustard sauce", "ua": "Свинячі реберця в медово-гірчичному соусі" },
+          "description": { "pl": "Pieczone żeberka wieprzowe w sosie miodowo-musztardowym, podane z pieczonymi ziemniakami.", "en": "Roasted pork ribs in a honey-mustard glaze, served with roast potatoes.", "ua": "Запечені свинячі реберця в медово-гірчичному соусі, подаються із запеченою картоплею." },
+          "count": { "pl": "350 g", "en": "350 g", "ua": "350 г" }
+        },
+        {
+          "id": 23, "price": 210, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Zrazy wieprzowe z grzybami", "en": "Pork roulade with mushrooms", "ua": "Крученики зі свинини з грибами" },
+          "description": { "pl": "Cienko rozbita wieprzowina zawijana z grzybami i cebulą, duszona w sosie własnym.", "en": "Thinly pounded pork rolled with mushrooms and onion, braised in its own gravy.", "ua": "Тонко відбита свинина, загорнута з грибами та цибулею, тушкована у власному соусі." },
+          "count": { "pl": "250 g", "en": "250 g", "ua": "250 г" }
+        },
+        {
+          "id": 24, "price": 175, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Kotleciki z kurczaka z sosem", "en": "Chicken cutlets with gravy", "ua": "Січеники курячі з підливою" },
+          "description": { "pl": "Domowe kotleciki z kurczaka podane z delikatnym sosem śmietanowym.", "en": "Homemade chicken cutlets served with a delicate sour cream gravy.", "ua": "Домашні курячі січеники, подаються з ніжною сметанною підливою." },
+          "count": { "pl": "250 g", "en": "250 g", "ua": "250 г" }
+        }
+      ]
+    },
+    {
+      "id": "mangal",
+      "title": { "pl": "Grill", "en": "Grill", "ua": "Гриль" },
+      "items": [
+        {
+          "id": 25, "price": 260, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Szaszłyk z karkówki", "en": "Pork neck shashlik", "ua": "Шашлик зі свинячої шиї" },
+          "description": { "pl": "Soczysta karkówka marynowana i grillowana na węglu, podana z cebulą i sosem.", "en": "Juicy marinated pork neck grilled over charcoal, served with onion and sauce.", "ua": "Соковита свиняча шия, маринована та засмажена на вугіллі, подається з цибулею та соусом." },
+          "count": { "pl": "250 g", "en": "250 g", "ua": "250 г" }
+        },
+        {
+          "id": 26, "price": 210, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Szaszłyk z kurczaka", "en": "Chicken shashlik", "ua": "Шашлик курячий" },
+          "description": { "pl": "Delikatne kawałki kurczaka grillowane na węglu, podane z marynowaną cebulą.", "en": "Tender chicken pieces grilled over charcoal, served with pickled onion.", "ua": "Ніжні шматочки курятини, засмажені на вугіллі, подаються з маринованою цибулею." },
+          "count": { "pl": "250 g", "en": "250 g", "ua": "250 г" }
+        },
+        {
+          "id": 27, "price": 230, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Kiełbaski domowe z grilla", "en": "Grilled homemade sausages", "ua": "Домашні ковбаски-гриль" },
+          "description": { "pl": "Swojskie kiełbaski wieprzowe z grilla, podane z musztardą i kiszoną kapustą.", "en": "Country pork sausages from the grill, served with mustard and sauerkraut.", "ua": "Домашні свинячі ковбаски на грилі, подаються з гірчицею та квашеною капустою." },
+          "count": { "pl": "250 g", "en": "250 g", "ua": "250 г" }
+        }
+      ]
+    },
+    {
+      "id": "garniry",
+      "title": { "pl": "Dodatki", "en": "Sides", "ua": "Гарніри" },
+      "items": [
+        {
+          "id": 28, "price": 95, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Ziemniaki smażone ze skwarkami", "en": "Fried potatoes with cracklings", "ua": "Картопля смажена зі шкварками" },
+          "description": { "pl": "Ziemniaki smażone na złoto z cebulą i skwarkami.", "en": "Golden fried potatoes with onion and pork cracklings.", "ua": "Картопля, смажена до золотистого кольору, з цибулею та шкварками." },
+          "count": { "pl": "250 g", "en": "250 g", "ua": "250 г" }
+        },
+        {
+          "id": 29, "price": 90, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Kasza gryczana z grzybami", "en": "Buckwheat with mushrooms", "ua": "Гречана каша з грибами" },
+          "description": { "pl": "Sypka kasza gryczana ze smażonymi grzybami i cebulą.", "en": "Fluffy buckwheat with fried mushrooms and onion.", "ua": "Розсипчаста гречана каша зі смаженими грибами та цибулею." },
+          "count": { "pl": "250 g", "en": "250 g", "ua": "250 г" }
+        },
+        {
+          "id": 30, "price": 75, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Puree ziemniaczane", "en": "Mashed potatoes", "ua": "Картопляне пюре" },
+          "description": { "pl": "Kremowe puree ziemniaczane z masłem.", "en": "Creamy mashed potatoes with butter.", "ua": "Ніжне картопляне пюре з вершковим маслом." },
+          "count": { "pl": "200 g", "en": "200 g", "ua": "200 г" }
+        },
+        {
+          "id": 31, "price": 110, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Warzywa z grilla", "en": "Grilled vegetables", "ua": "Овочі гриль" },
+          "description": { "pl": "Sezonowe warzywa grillowane na węglu z oliwą i ziołami.", "en": "Seasonal vegetables grilled over charcoal with olive oil and herbs.", "ua": "Сезонні овочі, засмажені на вугіллі з олією та зеленню." },
+          "count": { "pl": "200 g", "en": "200 g", "ua": "200 г" }
+        }
+      ]
+    },
+    {
+      "id": "salaty",
+      "title": { "pl": "Sałatki", "en": "Salads", "ua": "Салати" },
+      "items": [
+        {
+          "id": 32, "price": 120, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Sałatka Olivier", "en": "Olivier salad", "ua": "Салат «Олів'є»" },
+          "description": { "pl": "Klasyczna sałatka z ziemniakami, jajkiem, ogórkiem kiszonym, groszkiem i majonezem.", "en": "Classic salad with potato, egg, pickled cucumber, peas and mayonnaise.", "ua": "Класичний салат з картоплею, яйцем, солоним огірком, горошком та майонезом." },
+          "count": { "pl": "200 g", "en": "200 g", "ua": "200 г" }
+        },
+        {
+          "id": 33, "price": 95, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Winegret", "en": "Vinaigrette", "ua": "Вінегрет" },
+          "description": { "pl": "Sałatka z gotowanych buraków, ziemniaków, marchwi i kiszonej kapusty z olejem.", "en": "Salad of boiled beetroot, potato, carrot and sauerkraut dressed with oil.", "ua": "Салат з вареного буряка, картоплі, моркви та квашеної капусти з олією." },
+          "count": { "pl": "200 g", "en": "200 g", "ua": "200 г" }
+        },
+        {
+          "id": 34, "price": 85, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Kiszona kapusta z żurawiną", "en": "Sauerkraut with cranberries", "ua": "Квашена капуста з журавлиною" },
+          "description": { "pl": "Domowa kiszona kapusta z żurawiną i olejem słonecznikowym.", "en": "Homemade sauerkraut with cranberries and sunflower oil.", "ua": "Домашня квашена капуста з журавлиною та соняшниковою олією." },
+          "count": { "pl": "200 g", "en": "200 g", "ua": "200 г" }
+        },
+        {
+          "id": 35, "price": 105, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Sałatka ze świeżych warzyw", "en": "Fresh vegetable salad", "ua": "Салат зі свіжих овочів" },
+          "description": { "pl": "Świeże pomidory, ogórki i cebula ze śmietaną i zieleniną.", "en": "Fresh tomatoes, cucumbers and onion with sour cream and herbs.", "ua": "Свіжі помідори, огірки та цибуля зі сметаною та зеленню." },
+          "count": { "pl": "200 g", "en": "200 g", "ua": "200 г" }
+        }
+      ]
+    },
+    {
+      "id": "desery",
+      "title": { "pl": "Desery", "en": "Desserts", "ua": "Десерти" },
+      "items": [
+        {
+          "id": 36, "price": 130, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Serniki ze śmietaną", "en": "Syrnyky with sour cream", "ua": "Сирники зі сметаною" },
+          "description": { "pl": "Delikatne placuszki z twarogu smażone na złoto, podane ze śmietaną i mlekiem skondensowanym.", "en": "Tender cottage cheese fritters fried golden, served with sour cream and condensed milk.", "ua": "Ніжні сирники з домашнього сиру, смажені до золотистого кольору, подаються зі сметаною та згущеним молоком." },
+          "count": { "pl": "200 g", "en": "200 g", "ua": "200 г" }
+        },
+        {
+          "id": 37, "price": 120, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Naleśniki z twarogiem", "en": "Crepes with cottage cheese", "ua": "Налисники з сиром" },
+          "description": { "pl": "Cienkie naleśniki z nadzieniem twarogowym i rodzynkami, podane ze śmietaną.", "en": "Thin crepes filled with cottage cheese and raisins, served with sour cream.", "ua": "Тонкі налисники з начинкою із сиру та родзинок, подаються зі сметаною." },
+          "count": { "pl": "200 g", "en": "200 g", "ua": "200 г" }
+        },
+        {
+          "id": 38, "price": 110, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Miodownik domowy", "en": "Homemade honey cake", "ua": "Медовик домашній" },
+          "description": { "pl": "Wielowarstwowy tort miodowy z delikatnym kremem śmietankowym.", "en": "Layered honey cake with a delicate cream filling.", "ua": "Багатошаровий медовий торт з ніжним сметанним кремом." },
+          "count": { "pl": "150 g", "en": "150 g", "ua": "150 г" }
+        },
+        {
+          "id": 39, "price": 115, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Tort kijowski", "en": "Kyiv cake", "ua": "Київський торт" },
+          "description": { "pl": "Chrupiące bezowe blaty z orzechami laskowymi i kremem maślanym.", "en": "Crisp meringue layers with hazelnuts and buttercream.", "ua": "Хрусткі безові коржі з фундуком та масляним кремом." },
+          "count": { "pl": "150 g", "en": "150 g", "ua": "150 г" }
+        }
+      ]
+    },
+    {
+      "id": "vypichka",
+      "title": { "pl": "Pieczywo i wypieki", "en": "Bakery", "ua": "Випічка" },
+      "items": [
+        {
+          "id": 40, "price": 60, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Pampuszki z czosnkiem", "en": "Garlic pampushky", "ua": "Пампушки з часником" },
+          "description": { "pl": "Puszyste drożdżowe bułeczki posmarowane sosem czosnkowym z zieleniną.", "en": "Fluffy yeast buns brushed with garlic and herb dressing.", "ua": "Пухкі дріжджові пампушки, политі часниковою заправкою із зеленню." },
+          "count": { "pl": "4 szt.", "en": "4 pcs.", "ua": "4 шт." }
+        },
+        {
+          "id": 41, "price": 70, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Pierożki z ziemniakami", "en": "Fried potato pies", "ua": "Пиріжки з картоплею" },
+          "description": { "pl": "Smażone pierożki drożdżowe z nadzieniem ziemniaczanym.", "en": "Fried yeast pies with potato filling.", "ua": "Смажені дріжджові пиріжки з картопляною начинкою." },
+          "count": { "pl": "3 szt.", "en": "3 pcs.", "ua": "3 шт." }
+        },
+        {
+          "id": 42, "price": 70, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Pierożki z kapustą", "en": "Cabbage pies", "ua": "Пиріжки з капустою" },
+          "description": { "pl": "Smażone pierożki drożdżowe z duszoną kapustą.", "en": "Fried yeast pies with braised cabbage.", "ua": "Смажені дріжджові пиріжки з тушкованою капустою." },
+          "count": { "pl": "3 szt.", "en": "3 pcs.", "ua": "3 шт." }
+        },
+        {
+          "id": 43, "price": 40, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Chleb domowy żytni", "en": "Homemade rye bread", "ua": "Хліб домашній житній" },
+          "description": { "pl": "Domowy chleb żytni na zakwasie.", "en": "Homemade sourdough rye bread.", "ua": "Домашній житній хліб на заквасці." },
+          "count": { "pl": "150 g", "en": "150 g", "ua": "150 г" }
+        }
+      ]
+    },
+    {
+      "id": "napoi",
+      "title": { "pl": "Napoje", "en": "Drinks", "ua": "Напої" },
+      "items": [
+        {
+          "id": 44, "price": 55, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Uzwar z suszonych owoców", "en": "Dried fruit uzvar", "ua": "Узвар із сухофруктів" },
+          "description": { "pl": "Tradycyjny napój z suszonych owoców, podawany na zimno.", "en": "Traditional drink brewed from dried fruits, served cold.", "ua": "Традиційний напій із сухофруктів, подається холодним." },
+          "count": { "pl": "300 ml", "en": "300 ml", "ua": "300 мл" }
+        },
+        {
+          "id": 45, "price": 55, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Kompot owocowy", "en": "Berry compote", "ua": "Компот ягідний" },
+          "description": { "pl": "Domowy kompot z sezonowych jagód i owoców.", "en": "Homemade compote of seasonal berries and fruit.", "ua": "Домашній компот із сезонних ягід та фруктів." },
+          "count": { "pl": "300 ml", "en": "300 ml", "ua": "300 мл" }
+        },
+        {
+          "id": 46, "price": 50, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Kwas chlebowy domowy", "en": "Homemade kvass", "ua": "Квас домашній" },
+          "description": { "pl": "Orzeźwiający kwas chlebowy na bazie żytniego chleba.", "en": "Refreshing bread kvass made from rye bread.", "ua": "Освіжаючий хлібний квас на основі житнього хліба." },
+          "count": { "pl": "300 ml", "en": "300 ml", "ua": "300 мл" }
+        },
+        {
+          "id": 47, "price": 60, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Mors żurawinowy", "en": "Cranberry mors", "ua": "Морс журавлиний" },
+          "description": { "pl": "Kwaskowaty napój z żurawiny, lekko słodzony miodem.", "en": "Tart cranberry drink, lightly sweetened with honey.", "ua": "Кислуватий журавлиний напій, злегка підсолоджений медом." },
+          "count": { "pl": "300 ml", "en": "300 ml", "ua": "300 мл" }
+        },
+        {
+          "id": 48, "price": 65, "image": "/images/menu/empty.svg",
+          "name": { "pl": "Herbata ziołowa", "en": "Herbal tea", "ua": "Чай трав'яний" },
+          "description": { "pl": "Aromatyczna herbata z ziół i suszonych owoców.", "en": "Aromatic tea of herbs and dried fruit.", "ua": "Ароматний чай із трав та сушених фруктів." },
+          "count": { "pl": "400 ml", "en": "400 ml", "ua": "400 мл" }
+        }
+      ]
+    }
+  ]
+}

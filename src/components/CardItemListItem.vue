@@ -3,7 +3,7 @@
     <div class="cards-item-list-li-row">
       <div class="cards-item-list-li-text">
         <div class="cards-item-list-li-name">{{ item.name }}</div>
-        <div class="cards-item-list-li-price">{{ item.price }}zł</div>
+        <div class="cards-item-list-li-price">{{ item.price }} грн</div>
         <div class="cards-item-list-li-info">
           <p v-if="!!item.description" class="mb-2">
             {{ item.description }}

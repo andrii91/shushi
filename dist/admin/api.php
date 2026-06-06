@@ -73,4 +73,16 @@ if (file_put_contents($tmpFile, $json) === false) {
 
 rename($tmpFile, MENU_JSON_PATH);
 
-echo json_encode(['success' => true]);
+// Прибираємо фото страв, на які більше немає посилань у меню
+$used = [];
+foreach ($categories as $cat) {
+    foreach ($cat['items'] as $item) {
+        if (!empty($item['image'])) {
+            $used[] = $item['image'];
+        }
+    }
+}
+[$menuDir] = UPLOAD_TARGETS['menu'];
+$pruned = prune_unused_images($menuDir, $used);
+
+echo json_encode(['success' => true, 'pruned' => $pruned]);

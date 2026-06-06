@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "serve": "PHP_CLI_SERVER_WORKERS=4 php -S localhost:8000 -t dist",
+    "start": "npm run build && PHP_CLI_SERVER_WORKERS=4 php -S localhost:8000 -t dist"
   },
   "dependencies": {
     "@vueuse/head": "^2.0.0",
@@ -15,6 +17,7 @@
     "vue-i18n": "^10.0.6"
   },
   "devDependencies": {
+    "@types/node": "^25.9.2",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/tsconfig": "^0.7.0",
     "scss-reset": "^1.4.6",
