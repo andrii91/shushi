@@ -1,4 +1,4 @@
-import type { MenuItemTranslation } from "./MenuItem";
+import type { MenuItemTranslation } from "@/types/MenuItem";
 
 export type SocialType =
   | "instagram"
@@ -18,6 +18,7 @@ export interface SocialLink {
 export interface SiteSettings {
   name: string;
   phone: string;
+  currency: string;
   logo: string;
   headerImage: string;
   mapUrl: string;

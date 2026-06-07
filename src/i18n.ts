@@ -1,6 +1,6 @@
-import pl from "./locales/pl.json";
-import ua from "./locales/ua.json";
-import en from "./locales/en.json";
+import pl from "@/locales/pl.json";
+import ua from "@/locales/ua.json";
+import en from "@/locales/en.json";
 import { createI18n } from "vue-i18n";
 
 const messages = {

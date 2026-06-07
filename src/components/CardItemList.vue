@@ -1,10 +1,9 @@
 <template>
   <ul class="cards-item-list">
-    <CardItemListItem 
-      v-for="item in items" 
-      :key="item.name" 
+    <CardItemListItem
+      v-for="item in items"
+      :key="item.name"
       :item="item"
-      @update-favorite="emit('updateFavorite')"
       @open-media="openModal"
     />
   </ul>
@@ -13,7 +12,7 @@
     <h5 class="media-title">
       {{ mediaItem?.name }}
 
-      <span> {{ mediaItem?.price }}zł</span>
+      <span> {{ mediaItem?.price }} {{ currency }}</span>
     </h5>
     <img class="media-image" :src="mediaItem?.image" alt="media">
     <p class="media-description">
@@ -52,12 +51,11 @@
 </template>
 <script lang="ts" setup>
 import { ref, type PropType } from 'vue';
-import type { MenuItem } from '../types/MenuItem';
-import CardItemListItem from './CardItemListItem.vue';
-import Modal from './Modal.vue';
+import type { MenuItem } from '@/types/MenuItem';
+import CardItemListItem from '@/components/CardItemListItem.vue';
+import Modal from '@/components/Modal.vue';
 import { useI18n } from 'vue-i18n';
-
-const emit = defineEmits(['updateFavorite']);
+import { useCurrency } from '@/composables/currency';
 
 defineProps({
   items: {
@@ -66,6 +64,7 @@ defineProps({
 })
 
 const { t } = useI18n();
+const currency = useCurrency();
 const mediaItem = ref<MenuItem>();
 const openMedia = ref(false);
 const showRollsDetails = ref(false);
@@ -73,7 +72,7 @@ const showRollsDetails = ref(false);
 const openModal = (item: MenuItem) => {
   mediaItem.value = item;
   openMedia.value = true;
-  showRollsDetails.value = false; // Скидаємо стан при відкритті нового модального вікна
+  showRollsDetails.value = false; // Reset the state when opening a new modal
 }
 </script>
 

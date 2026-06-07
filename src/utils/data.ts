@@ -1,17 +1,18 @@
-import type { MenuCategoryRaw, MenuCategory } from "../types/MenuItem";
+import type { MenuCategoryRaw, MenuCategory } from "@/types/MenuItem";
+import { normalizeLang, pickTranslation } from "@/utils/i18n";
 
 export const transformMenu = (raw: MenuCategoryRaw[], locale: string): MenuCategory[] => {
-  const lang = (["pl", "en", "ua"].includes(locale) ? locale : "pl") as "pl" | "en" | "ua";
+  const lang = normalizeLang(locale);
   return raw.map((cat) => ({
-    category: cat.title[lang] ?? cat.title.pl,
+    category: pickTranslation(cat.title, lang),
     items: cat.items.map((item) => ({
       id: item.id,
       price: item.price,
       image: item.image,
-      name: item.name[lang] ?? item.name.pl,
-      description: item.description?.[lang] ?? item.description?.pl,
-      count: item.count?.[lang] ?? item.count?.pl,
-      rollsDescription: item.rollsDescription?.[lang] ?? item.rollsDescription?.pl,
+      name: pickTranslation(item.name, lang),
+      description: pickTranslation(item.description, lang) || undefined,
+      count: pickTranslation(item.count, lang) || undefined,
+      rollsDescription: pickTranslation(item.rollsDescription, lang) || undefined,
     })),
   }));
 };

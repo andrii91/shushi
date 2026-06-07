@@ -62,6 +62,7 @@ foreach (($settings['hours']['lines'] ?? []) as $line) {
 $clean = [
     'name' => (string)($settings['name'] ?? ''),
     'phone' => (string)($settings['phone'] ?? ''),
+    'currency' => (string)($settings['currency'] ?? 'zł'),
     'logo' => (string)($settings['logo'] ?? ''),
     'headerImage' => (string)($settings['headerImage'] ?? ''),
     'mapUrl' => (string)($settings['mapUrl'] ?? ''),

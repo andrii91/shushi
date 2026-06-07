@@ -22,7 +22,7 @@ const close = () => {
   emit('close');
 };
 
-// Додаємо/видаляємо клас до body
+// Add/remove the class on body
 watch(() => props.isOpen, (newVal) => {
   if (newVal) {
     document.body.classList.add('modal-opened');
@@ -31,7 +31,7 @@ watch(() => props.isOpen, (newVal) => {
   }
 });
 
-// Чистимо клас при демонтажі компонента
+// Clean up the class when the component unmounts
 onUnmounted(() => {
   document.body.classList.remove('modal-opened');
 });

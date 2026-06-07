@@ -14,7 +14,7 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
-import type { SocialType } from "../types/SiteSettings";
+import type { SocialType } from "@/types/SiteSettings";
 
 const props = defineProps<{ type: SocialType }>();
 

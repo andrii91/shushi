@@ -34,7 +34,7 @@ if ($isLogged && file_exists(MENU_JSON_PATH)) {
 
 // Читання поточних налаштувань сайту
 $settings = [
-    'name' => '', 'phone' => '', 'logo' => '', 'headerImage' => '', 'mapUrl' => '',
+    'name' => '', 'phone' => '', 'currency' => 'грн', 'logo' => '', 'headerImage' => '', 'mapUrl' => '',
     'address' => ['pl' => '', 'en' => '', 'ua' => ''],
     'hours' => ['title' => ['pl' => '', 'en' => '', 'ua' => ''], 'lines' => []],
     'socials' => [],
@@ -54,6 +54,9 @@ $SOCIAL_TYPES = [
     'youtube' => 'YouTube', 'telegram' => 'Telegram', 'whatsapp' => 'WhatsApp',
     'viber' => 'Viber', 'x' => 'X (Twitter)',
 ];
+
+// Available currency symbols
+$CURRENCIES = ['zł', '€', '$', '₴', 'грн', '£', 'Kč'];
 ?>
 <!DOCTYPE html>
 <html lang="uk">
@@ -210,6 +213,19 @@ textarea { resize: vertical; min-height: 72px; }
     </div>
 
     <div class="fields-section">
+      <div class="fields-section-title">Валюта</div>
+      <select id="set-currency" style="max-width:160px" onchange="refreshCurrencyLabels()">
+        <?php
+          $curr = $settings['currency'] ?? 'грн';
+          $currOpts = $CURRENCIES;
+          if ($curr !== '' && !in_array($curr, $currOpts, true)) array_unshift($currOpts, $curr);
+          foreach ($currOpts as $c): ?>
+        <option value="<?= htmlspecialchars($c) ?>" <?= $curr === $c ? 'selected' : '' ?>><?= htmlspecialchars($c) ?></option>
+        <?php endforeach; ?>
+      </select>
+    </div>
+
+    <div class="fields-section">
       <div class="fields-section-title">Логотип</div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
         <img class="set-logo-preview" src="<?= htmlspecialchars($settings['logo'] ?: '/images/site/logo.webp') ?>" style="width:48px;height:48px;border-radius:8px;object-fit:cover;background:#333" onerror="this.style.opacity=.3">
@@ -330,13 +346,13 @@ textarea { resize: vertical; min-height: 72px; }
         <span class="drag-handle item-drag-handle" title="Перетягнути позицію">⠿</span>
         <img class="item-img-preview" src="<?= htmlspecialchars($item['image'] ?? '/images/menu/empty.svg') ?>" alt="" onerror="this.src='/images/menu/empty.svg'">
         <span class="item-name-preview"><?= htmlspecialchars($item['name']['ua'] ?? '') ?></span>
-        <span class="item-price-badge"><?= (int)($item['price'] ?? 0) ?> zł</span>
+        <span class="item-price-badge"><?= (int)($item['price'] ?? 0) ?> <?= htmlspecialchars($curr) ?></span>
         <button class="btn btn-danger btn-sm" onclick="removeItem(this)">✕</button>
       </div>
 
       <div class="fields-grid">
         <div>
-          <label>Ціна (zł)</label>
+          <label>Ціна (<?= htmlspecialchars($curr) ?>)</label>
           <input type="number" class="item-price" value="<?= (int)($item['price'] ?? 0) ?>" min="0" step="1" oninput="updatePriceBadge(this)">
         </div>
 
@@ -510,6 +526,7 @@ async function saveSettings() {
   const settings = {
     name: val('set-name'),
     phone: val('set-phone'),
+    currency: val('set-currency'),
     logo: val('set-logo'),
     headerImage: val('set-header'),
     mapUrl: val('set-mapurl'),
@@ -570,9 +587,24 @@ function updateCatTitle(input, lang) {
   }
 }
 
+function currentCurrency() {
+  return document.getElementById('set-currency')?.value || 'грн';
+}
+
 function updatePriceBadge(input) {
   const badge = input.closest('.item-block').querySelector('.item-price-badge');
-  badge.textContent = (parseInt(input.value) || 0) + ' zł';
+  badge.textContent = (parseInt(input.value) || 0) + ' ' + currentCurrency();
+}
+
+function refreshCurrencyLabels() {
+  const curr = currentCurrency();
+  document.querySelectorAll('.item-price-badge').forEach(b => {
+    b.textContent = (parseInt(b.textContent) || 0) + ' ' + curr;
+  });
+  document.querySelectorAll('.item-price').forEach(inp => {
+    const label = inp.closest('div')?.querySelector('label');
+    if (label) label.textContent = 'Ціна (' + curr + ')';
+  });
 }
 
 function updateNamePreview(input) {
@@ -649,12 +681,12 @@ function addItem(btn) {
       <span class="drag-handle item-drag-handle" title="Перетягнути позицію">⠿</span>
       <img class="item-img-preview" src="/images/menu/empty.svg" style="width:56px;height:56px;border-radius:8px;object-fit:cover">
       <span class="item-name-preview">(нова позиція)</span>
-      <span class="item-price-badge">0 zł</span>
+      <span class="item-price-badge">0 ${currentCurrency()}</span>
       <button class="btn btn-danger btn-sm" onclick="removeItem(this)">✕</button>
     </div>
     <div class="fields-grid">
       <div>
-        <label>Ціна (zł)</label>
+        <label>Ціна (${currentCurrency()})</label>
         <input type="number" class="item-price" value="0" min="0" step="1" oninput="updatePriceBadge(this)">
       </div>
       <div class="fields-section">

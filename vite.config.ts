@@ -5,12 +5,12 @@ import {
 } from 'node:fs'
 import { resolve, join, dirname, extname } from 'node:path'
 
-// Живі дані (редагуються через PHP-адмінку в рантаймі). Лежать у seed/ як шаблон,
-// у dist/ — як робоча копія, яку білд НЕ перезаписує.
+// Live data (edited via the PHP admin panel at runtime). Stored in seed/ as a template,
+// and in dist/ as the working copy that the build does NOT overwrite.
 const SEED_DIRS = ['data', 'images']
-// Теки із зображеннями, якими керує адмінка (можуть накопичувати «сироти»).
+// Image directories managed by the admin panel (may accumulate orphans).
 const MANAGED_DIRS = ['images/menu', 'images/site']
-// Файли-дані, з яких збираємо посилання на зображення.
+// Data files from which we collect image references.
 const DATA_FILES = ['data/menu.json', 'data/settings.json']
 
 const MIME: Record<string, string> = {
@@ -24,7 +24,7 @@ const MIME: Record<string, string> = {
   '.ico': 'image/x-icon',
 }
 
-// Рекурсивно копіює src→dest, НЕ перезаписуючи наявні файли (seed-if-missing).
+// Recursively copies src->dest WITHOUT overwriting existing files (seed-if-missing).
 function copyMissing(src: string, dest: string) {
   if (!existsSync(src)) return
   for (const name of readdirSync(src)) {
@@ -39,7 +39,7 @@ function copyMissing(src: string, dest: string) {
   }
 }
 
-// Рекурсивно збирає всі рядки виду "/images/..." з довільного JSON.
+// Recursively collects all "/images/..." strings from an arbitrary JSON.
 function collectImageRefs(value: unknown, out: Set<string>) {
   if (typeof value === 'string') {
     if (value.startsWith('/images/')) out.add(value.replace(/^\//, ''))
@@ -50,8 +50,8 @@ function collectImageRefs(value: unknown, out: Set<string>) {
   }
 }
 
-// Видаляє з dist/ зображення в керованих теках, на які немає посилань у data/*.json.
-// Завжди лишає .svg. Якщо даних/посилань нема — нічого не видаляє.
+// Removes images in managed dist/ directories that are not referenced in data/*.json.
+// Always keeps .svg. If there is no data/references, removes nothing.
 function pruneUnusedImages(dist: string) {
   const refs = new Set<string>()
   let dataOk = false
@@ -61,7 +61,7 @@ function pruneUnusedImages(dist: string) {
     try {
       collectImageRefs(JSON.parse(readFileSync(p, 'utf8')), refs)
       dataOk = true
-    } catch { /* спрацює запобіжник нижче */ }
+    } catch { /* the guard below will handle it */ }
   }
   if (!dataOk || refs.size === 0) {
     console.log('[mutable-data] prune пропущено: посилань на зображення не знайдено')
@@ -84,9 +84,9 @@ function pruneUnusedImages(dist: string) {
   console.log(`[mutable-data] prune: прибрано ${removed} файл(ів)`)
 }
 
-// Розділяє «шаблон» (seed/) і «живі дані» (dist/):
-//  • build: не чистить data/images у dist, лише засіває відсутнє; чистить лише dist/assets;
-//  • dev: віддає /data та /images із seed/, бо в public/ їх більше немає.
+// Separates the "template" (seed/) from "live data" (dist/):
+//  - build: does not clean data/images in dist, only seeds what is missing; cleans only dist/assets;
+//  - dev: serves /data and /images from seed/, since they no longer live in public/.
 function mutableData(): Plugin {
   const root = process.cwd()
   const seed = resolve(root, 'seed')
@@ -94,7 +94,7 @@ function mutableData(): Plugin {
   return {
     name: 'mutable-data',
     enforce: 'post',
-    // Чистимо лише зібрані бандли (бо emptyOutDir вимкнено), не чіпаючи живі дані.
+    // Clean only the built bundles (since emptyOutDir is disabled), leaving live data untouched.
     buildStart() {
       const assets = join(dist, 'assets')
       if (existsSync(assets)) rmSync(assets, { recursive: true, force: true })
@@ -120,8 +120,13 @@ function mutableData(): Plugin {
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [vue(), mutableData()],
+  resolve: {
+    alias: {
+      '@': resolve(process.cwd(), 'src'),
+    },
+  },
   build: {
-    // Не витирати dist цілком — там живі дані (data/, images/), які пише адмінка.
+    // Do not wipe dist entirely - it holds live data (data/, images/) written by the admin panel.
     emptyOutDir: false,
   },
 })

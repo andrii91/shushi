@@ -8,9 +8,7 @@
       :title="t(`common.component.i18nSelector.${locale}`)"
     >
       <component :is="currentFlagComponent" />
-      <svg class="dropdown-arrow" :class="{ 'rotated': isOpen }" viewBox="0 0 24 24">
-        <path d="M7 10l5 5 5-5z" fill="currentColor"/>
-      </svg>
+      <ChevronIcon class="dropdown-arrow" :class="{ 'rotated': isOpen }" />
     </button>
     
     <div v-if="isOpen" class="dropdown-menu" role="listbox">
@@ -32,26 +30,27 @@
 
 <script setup lang="ts">
 import { useI18n } from "vue-i18n";
-import { ref, computed, onMounted, onUnmounted, nextTick } from "vue";
-import FlagPL from "./icons/FlagPL.vue";
-import FlagEN from "./icons/FlagEN.vue";
-import FlagUA from "./icons/FlagUA.vue";
+import { ref, computed, onMounted, onUnmounted } from "vue";
+import { useLocale } from "@/composables/locale";
+import ChevronIcon from "@/components/icons/ChevronIcon.vue";
+import FlagPL from "@/components/icons/FlagPL.vue";
+import FlagEN from "@/components/icons/FlagEN.vue";
+import FlagUA from "@/components/icons/FlagUA.vue";
 
 defineOptions({
   name: "I18nSelector",
 });
 
-const { t, locale } = useI18n({ useScope: "global" });
-const savedLocale = localStorage.getItem("locale");
-locale.value = savedLocale ?? "pl";
+const { t } = useI18n({ useScope: "global" });
+const { locale, setLocale } = useLocale();
 
 const isOpen = ref(false);
 
 const languages = [
   {
-    code: "pl",
-    name: "Polski",
-    flagComponent: FlagPL
+    code: "ua",
+    name: "Українська",
+    flagComponent: FlagUA
   },
   {
     code: "en",
@@ -59,10 +58,10 @@ const languages = [
     flagComponent: FlagEN
   },
   {
-    code: "ua",
-    name: "Українська",
-    flagComponent: FlagUA
-  }
+    code: "pl",
+    name: "Polski",
+    flagComponent: FlagPL
+  },
 ];
 
 const currentFlagComponent = computed(() => {
@@ -73,13 +72,9 @@ const toggleDropdown = () => {
   isOpen.value = !isOpen.value;
 };
 
-const selectLanguage = async (langCode: string) => {
-  locale.value = langCode;
-  localStorage.setItem("locale", langCode);
+const selectLanguage = (langCode: string): void => {
+  setLocale(langCode);
   isOpen.value = false;
-  
-  // Чекаємо наступний тик для оновлення DOM
-  await nextTick();
 };
 
 const closeDropdown = (event: Event) => {

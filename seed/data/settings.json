@@ -1,6 +1,7 @@
 {
   "name": "Калина",
   "phone": "+380 44 123 45 67",
+  "currency": "грн",
   "logo": "/images/site/logo.webp",
   "headerImage": "/images/site/header.webp",
   "mapUrl": "https://maps.google.com/?q=Khreshchatyk+1+Kyiv",
